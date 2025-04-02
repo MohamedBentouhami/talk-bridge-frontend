@@ -1,9 +1,14 @@
+import { useTranslation } from "react-i18next"
+import LangSelect from "./components/lang-select/lang-select";
+
 function App() {
+
+  const {t} = useTranslation();
 
   return (
     <>
-
-      <div>Language app</div>
+      <LangSelect/>
+      <div>{t('app.title')}</div>
     </>
   )
 }
