@@ -9,6 +9,6 @@ export default function LangSelect() {
         i18n.changeLanguage(code);
     }
     return <select defaultValue={i18n.language} onChange={handleChangeLang}>
-        {LANGUAGES.map((lg) => <option key={lg.code} value={lg.code}>{lg.label}</option>)}
+        {LANGUAGES.map((lg) => <option key={lg.code} value={lg.code}> {lg.label}</option>)}
     </select>
 }

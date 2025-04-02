@@ -1,0 +1,28 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background: var(--main-linear-gradient);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 8px;
+        transition: 0.3s ease, transform 0.2s;
+    }
+}
+
+.nav a:hover {
+    color: #d8b9ff;
+    transform: scale(1.05);
+}
+
+.nav a.active {
+    opacity: 0.4;
+}
