@@ -1,5 +1,12 @@
 {
-    "app":{
-        "title": "Application de langue"
+    "app": {
+        "title": "Application de Langues"
+    },
+    "menu": {
+        "home": "Accueil",
+        "dashboard": "Tableau de bord",
+        "connect": "Se connecter",
+        "voiceroom": "Salon vocal",
+        "profile": "Profil"
     }
 }

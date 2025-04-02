@@ -1,5 +1,12 @@
 {
-    "app":{
-        "title": "Language app"
+    "app": {
+        "title": "Language App"
+    },
+    "menu": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "connect": "Connect",
+        "voiceroom": "Voice Room",
+        "profile": "Profile"
     }
 }
