@@ -15,5 +15,11 @@
         "no-account": "Vous n'avez pas de compte ?",
         "register": "S'inscrire",
         "btn-login": "Se connecter"
+    },
+    "home": {
+        "title": "Bienvenue sur Talk Bridge - Connectez-vous, Apprenez et Évoluez ! 🌍✨",
+        "intro": "Rejoignez une communauté mondiale où les apprenants en langues et les locuteurs natifs s'entraident pour progresser grâce à de vraies conversations. Commencez votre aventure dès aujourd'hui !",
+        "get-start": "COMMENCER",
+        "have-account": "J'AI DÉJÀ UN COMPTE"
     }
 }

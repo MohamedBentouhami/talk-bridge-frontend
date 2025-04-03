@@ -15,5 +15,11 @@
         "no-account": "Don't have an account?",
         "register": "Sign Up",
         "login": "Login"
+    },
+    "home": {
+        "title": "Welcome to Talk Bridge - Connect, Learn, and Grow! 🌍✨",
+        "intro": "Join a global community where language learners and native speakers help each other improve through real conversations. Start your journey today!",
+        "get-start": "GET STARTED",
+        "have-account": "I ALREADY HAVE AN ACCOUNT"
     }
 }
