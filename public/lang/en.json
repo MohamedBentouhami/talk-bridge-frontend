@@ -8,5 +8,12 @@
         "connect": "Connect",
         "voiceroom": "Voice Room",
         "profile": "Profile"
+    },
+    "login": {
+        "email": "Email",
+        "password": "Password",
+        "no-account": "Don't have an account?",
+        "register": "Sign Up",
+        "login": "Login"
     }
 }

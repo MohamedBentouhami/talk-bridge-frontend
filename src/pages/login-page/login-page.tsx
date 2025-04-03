@@ -1,3 +1,8 @@
+import LoginCard from "../../containers/login-card/login-card";
+import "./login-page.css"
+
 export default function LoginPage(){
-    return <div>Login Page</div>
+    return <div className="login-page">
+        <LoginCard></LoginCard>
+    </div>
 }
