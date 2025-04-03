@@ -7,7 +7,8 @@
         "dashboard": "Tableau de bord",
         "connect": "Se connecter",
         "voiceroom": "Salon vocal",
-        "profile": "Profil"
+        "profile": "Profil",
+        "logout": "Se déconnecter"
     },
     "login": {
         "email": "Adresse e-mail",

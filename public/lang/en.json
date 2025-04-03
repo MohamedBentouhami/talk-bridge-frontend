@@ -7,7 +7,8 @@
         "dashboard": "Dashboard",
         "connect": "Connect",
         "voiceroom": "Voice Room",
-        "profile": "Profile"
+        "profile": "Profile",
+        "logout": "Logout"
     },
     "login": {
         "email": "Email",

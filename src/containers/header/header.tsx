@@ -5,5 +5,6 @@ export default function Header() {
     return <header className={"header"}>
         <h1>Talk Bridge</h1>
         <NavBar />
+
     </header>
 }

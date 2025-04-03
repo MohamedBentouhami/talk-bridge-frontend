@@ -8,13 +8,16 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
     a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.3s ease, transform 0.2s;
         color: white;
         text-decoration: none;
         font-size: 18px;
         font-weight: 500;
         padding: 8px 15px;
         border-radius: 8px;
-        transition: 0.3s ease, transform 0.2s;
     }
 }
 
@@ -41,3 +44,27 @@
 .nav a:hover::after {
     transform: scaleX(1);
 }
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.2s;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.logout-btn svg {
+    margin-right: 5px;
+}
+
+.logout-btn:hover {
+    color: #ff6961;
+    transform: scale(1.05);
+}
+
