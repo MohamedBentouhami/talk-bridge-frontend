@@ -4,9 +4,7 @@
   box-sizing: border-box;
 }
 .loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;

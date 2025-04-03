@@ -16,6 +16,20 @@
         "register": "Sign Up",
         "login": "Login"
     },
+    "register": {
+        "title": "Create an Account",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "birthday": "Date of Birth",
+        "nativeLanguage": "Native Language",
+        "targetLanguage": "Target Language",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "next": "Next",
+        "back": "Back",
+        "button": "Register"
+    },
     "home": {
         "title": "Welcome to Talk Bridge - Connect, Learn, and Grow! 🌍✨",
         "intro": "Join a global community where language learners and native speakers help each other improve through real conversations. Start your journey today!",

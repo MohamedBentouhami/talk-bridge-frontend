@@ -30,14 +30,14 @@ export default function LoginCard() {
 
     return <form className="login-form">
         <h1>{t('login.login')}</h1>
-        <div>
+        <div className="div-input">
 
             <label>
                 {t('login.email')}
             </label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
-        <div>
+        <div className="div-input">
             <label>
                 {t('login.password')}
             </label>

@@ -16,6 +16,20 @@
         "register": "S'inscrire",
         "btn-login": "Se connecter"
     },
+    "register": {
+        "title": "Créer un compte",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "birthday": "Date de naissance",
+        "nativeLanguage": "Langue maternelle",
+        "targetLanguage": "Langue cible",
+        "email": "Email",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "next": "Suivant",
+        "back": "Retour",
+        "button": "S'inscrire"
+    },
     "home": {
         "title": "Bienvenue sur Talk Bridge - Connectez-vous, Apprenez et Évoluez ! 🌍✨",
         "intro": "Rejoignez une communauté mondiale où les apprenants en langues et les locuteurs natifs s'entraident pour progresser grâce à de vraies conversations. Commencez votre aventure dès aujourd'hui !",
