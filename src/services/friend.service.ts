@@ -7,7 +7,13 @@ const friendService = axios.create({
     }
 });
 
-export async function fetchFriends(lg: string): Promise<any> {
-    const response = await friendService.get<any[]>(`/friends/${lg}`);
+export async function fetchFriends(): Promise<any> {
+    const response = await friendService.get<any[]>(`/friends/`);
+    return response.data;
+}
+
+
+export async function getMessages(friendId: string) {
+    const response = await friendService.get<any[]>(`/messages/${friendId}`)
     return response.data;
 }

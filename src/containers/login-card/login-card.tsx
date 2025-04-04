@@ -18,7 +18,10 @@ export default function LoginCard() {
         try {
             setLoading(true);
             const response = await login(email, password);
-            localStorage.setItem("token", response.data);
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("first_name", response.data.user.first_name);
+            localStorage.setItem("last_name", response.data.user.last_name);
+            localStorage.setItem("id", response.data.user.id)
             await navigate("/dashboard")
         } catch (error: any) {
             console.log(error);

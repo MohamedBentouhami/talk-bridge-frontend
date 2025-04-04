@@ -36,5 +36,8 @@
         "intro": "Join a global community where language learners and native speakers help each other improve through real conversations. Start your journey today!",
         "get-start": "GET STARTED",
         "have-account": "I ALREADY HAVE AN ACCOUNT"
+    },
+    "dashboard": {
+        "noChatMessage": "Select a conversation from the chat bar to start chatting"
     }
 }
