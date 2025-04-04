@@ -1,9 +1,15 @@
 import { User } from "../../@types/user";
+import socket from "../../socket";
 
 type NewPartnerCardProps = {
     user: User;
 };
 
+
 export default function NewPartnerCard({ user }: NewPartnerCardProps) {
-    return <p>{user.firstName}<button>Add partner</button></p>;
+    const handleAddPartner = async () => {
+        socket.emit("sendFriendRequest", { friendId: user.id });
+    };
+
+    return <p>{user.firstName}<button onClick={handleAddPartner}>Add partner</button></p>;
 }

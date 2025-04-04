@@ -1,4 +1,4 @@
-export type Friend={
+export type Person={
     id: string,
     first_name: string,
     last_name: string,

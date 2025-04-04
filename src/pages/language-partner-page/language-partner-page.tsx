@@ -5,7 +5,7 @@ import NewPartnerList from "../../containers/new-partner-list/new-partner-list";
 
 export default function PartnerPage() {
     // TODO get it from the local storage info
-    const lg: string = "fr";
+    const lg: string = localStorage.getItem("learning_language") ?? "en";
     const { data, error, isLoading } = useSWR('api/users', () => fetchNewPartners(lg))
     if (error) return <div>Error loading partners...</div>;
     return <div>

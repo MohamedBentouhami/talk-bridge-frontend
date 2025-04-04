@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashBoardPage from "./pages/dashboard-page/dashboard";
 import HomePage from "./pages/home-page/home-page";
 import PartnerPage from "./pages/language-partner-page/language-partner-page";
@@ -10,7 +10,7 @@ import ProtectedRoutes from "./utils/protected-routes/protected_routes";
 
 function App() {
 
-
+  
   return (
     <>
       <Router>

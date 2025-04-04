@@ -17,3 +17,10 @@ export async function getMessages(friendId: string) {
     const response = await friendService.get<any[]>(`/messages/${friendId}`)
     return response.data;
 }
+
+export default async function addFriend(friendId: string): Promise<void> {
+    await friendService.post<any[]>('/friends/add', {
+        friend_id: friendId
+    });
+
+}

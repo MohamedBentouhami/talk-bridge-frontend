@@ -13,9 +13,8 @@ export default function SideBar() {
             dispatch(friendsFetch());
         }
     }, [dispatch, search.result]);
-    console.log(friends)
 
-    if (search.isLoading) return <Loader></Loader>
+    if (search.friendsLoading) return <Loader></Loader>
     if (search.error) return <p>{search.error}</p>
     return <>
     <h2>Test</h2>

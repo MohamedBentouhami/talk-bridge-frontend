@@ -4,6 +4,7 @@ import SideBar from "../../containers/sidebar/sidebar";
 
 export default function DashBoardPage() {
     const selectedUser = undefined;
+
     return <div><SideBar />
         {selectedUser ? <ChatContainer /> : <NoChatContainer />}
     </div>
