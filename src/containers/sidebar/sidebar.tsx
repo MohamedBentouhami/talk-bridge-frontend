@@ -1,28 +1,46 @@
-import { useDispatch, useSelector } from "react-redux"
-import { AppDispatch, RootState } from "../../store/store";
-import { useEffect } from "react";
-import { friendsFetch } from "../../store/friends/friend.action";
-import { Loader } from "lucide-react";
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
+import { friendsFetch } from '../../store/friends/friend.action';
+import Loader from '../../components/loader/loader';
+import './sidebar.css';
 
-export default function SideBar() {
+const FriendsList = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { friends, search } = useSelector((state: RootState) => state.friend);
+    const server = import.meta.env.VITE_SERVER_IMAGES;
 
-    useEffect(() => {
-        if (!search.result) {
-            dispatch(friendsFetch());
-        }
-    }, [dispatch, search.result]);
+    const { isLoadingFriend: isLoading, friends, errorFriend: error } = useSelector((state: RootState) => state.friend);
 
-    if (search.friendsLoading) return <Loader></Loader>
-    if (search.error) return <p>{search.error}</p>
-    return <>
-    <h2>Test</h2>
-        <ul>
-            {friends.map((friend) =>
-                <li key={friend.id}>{friend.first_name}</li>
+    if (!isLoading && !friends!.length && !error) {
+        dispatch(friendsFetch());
+    }
+
+    return (
+        <div className="friends-sidebar">
+            {isLoading ? (
+                <Loader />
+            ) : friends!.length > 0 ? (
+                <div>
+                    <h3 className="sidebar-title">Friends</h3>
+                    <ul className="friends-list">
+                        {friends!.map(friend => (
+                            <li key={friend.id} className="friend-item">
+                                <img 
+                                    className="friend-image" 
+                                    src={`${server}${friend.profilePict}`} 
+                                    alt={`${friend.firstName} ${friend.lastName}`} 
+                                />
+                                <p className="friend-name">{friend.firstName} {friend.lastName}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ) : error ? (
+                <p>{error}</p>
+            ) : (
+                <p>No friends found.</p>
             )}
-        </ul>
-    </>
+        </div>
+    );
+};
 
-}
+export default FriendsList;

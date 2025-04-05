@@ -38,6 +38,6 @@
         "have-account": "I ALREADY HAVE AN ACCOUNT"
     },
     "dashboard": {
-        "noChatMessage": "Select a conversation from the chat bar to start chatting"
+        "noChatMessage": "Select a conversation from the side bar to start chatting"
     }
 }

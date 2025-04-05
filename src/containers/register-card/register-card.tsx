@@ -8,6 +8,7 @@ import signup from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/loader";
 import storeUserToken from "../../utils/handle-local-storage/handle-local-storage";
+import socket from "../../socket";
 
 export default function RegisterCard() {
     const { t } = useTranslation();
@@ -34,15 +35,17 @@ export default function RegisterCard() {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmitForm = async (e: React.MouseEvent) => {
+    const handleRegisterForm = async (e: React.MouseEvent) => {
         e.preventDefault();
         try {
             setIsLoading(true);
             const response = await signup(formData);
             storeUserToken(response);
-            navigate("/dashboard");
+            socket.emit("auth", response.data.user.id)
+            await navigate( "/dashboard");
         } catch (error: any) {
             setError(error);
+            console.log(error)
         } finally {
             setIsLoading(false);
         }
@@ -72,7 +75,7 @@ export default function RegisterCard() {
                         </button>
                     )}
                     {step === 3 && (
-                        <button type="submit" className="register-btn" onClick={handleSubmitForm}>
+                        <button type="submit" className="register-btn" onClick={handleRegisterForm}>
                             {t('register.button')}
                         </button>
                     )}

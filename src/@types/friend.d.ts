@@ -1,5 +1,6 @@
 export type Person={
     id: string,
-    first_name: string,
-    last_name: string,
-}
+    firstName: string,
+    lastName: string,
+    profilePict: string,
+}   

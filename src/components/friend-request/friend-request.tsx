@@ -1,3 +1,5 @@
-export default function FriendRequest(){
-    // TODO appeller le store pour les request et toutZ
+export default function FriendRequests(){
+    return <div>
+        <h3>Friends request</h3>
+    </div>
 }

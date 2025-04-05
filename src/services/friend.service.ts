@@ -1,14 +1,25 @@
 import axios from "axios";
+import { Person } from "../@types/friend";
 
 const friendService = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
-    headers: {
-        "Authorization": localStorage.getItem("token") || ""
-    }
 });
 
-export async function fetchFriends(): Promise<any> {
-    const response = await friendService.get<any[]>(`/friends/`);
+
+friendService.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+        config.headers.Authorization = token;
+    }
+    return config;
+});
+
+export async function fetchFriends(): Promise<Person[]> {
+    const response = await friendService.get<Person[]>(`/friends/`);
+    return response.data;
+}
+export async function fetchRequesters(): Promise<Person[]> {
+    const response = await friendService.get<Person[]>(`/friends/`);
     return response.data;
 }
 

@@ -12,8 +12,7 @@ export async function login(email: string, password: string): Promise<any> {
 }
 
 export default async function signup(data: formData) {
-    console.log(data);
-    await authService.post('/auth/signup', {
+    return await authService.post('/auth/signup', {
         "first_name": data.firstName,
         "last_name": data.lastName,
         "email": data.email,
@@ -23,5 +22,9 @@ export default async function signup(data: formData) {
         "learning_language": data.targetLanguage,
         "bio": "None",
         "profile_pict": data.picture
+    }, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        }
     })
 } 
