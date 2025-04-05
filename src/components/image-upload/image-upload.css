@@ -1,0 +1,41 @@
+.image-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+}
+
+.profile-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 6px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 3px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.img-btn:hover {
+    background-color: snow;
+    color: white;
+}

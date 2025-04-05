@@ -5,6 +5,7 @@ import { login } from "../../services/auth.service";
 import Loader from "../../components/loader/loader";
 import { useNavigate } from "react-router-dom";
 import socket from "../../socket";
+import storeUserToken from "../../utils/handle-local-storage/handle-local-storage";
 
 export default function LoginCard() {
     const { t } = useTranslation();
@@ -12,18 +13,14 @@ export default function LoginCard() {
     const [password, setPassword] = useState("");
     const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleLogin = async (e: React.MouseEvent) => {
         e.preventDefault();
         try {
             setLoading(true);
             const response = await login(email, password);
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("id", response.data.user.id);
-            localStorage.setItem("first_name", response.data.user.first_name);
-            localStorage.setItem("last_name", response.data.user.last_name);
-            localStorage.setItem("learning_language", response.data.user.learning_language)
+            storeUserToken(response);
             socket.emit("auth", response.data.user.id)
             await navigate("/dashboard")
         } catch (error: any) {
