@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Person } from "../@types/friend";
+import { Person } from "../@types/person";
 
 const friendService = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
@@ -19,7 +19,7 @@ export async function fetchFriends(): Promise<Person[]> {
     return response.data;
 }
 export async function fetchRequesters(): Promise<Person[]> {
-    const response = await friendService.get<Person[]>(`/friends/`);
+    const response = await friendService.get<Person[]>(`/friends/new-requesters`);
     return response.data;
 }
 
@@ -29,7 +29,7 @@ export async function getMessages(friendId: string) {
     return response.data;
 }
 
-export default async function addFriend(friendId: string): Promise<void> {
+export default async function addFriendRequest(friendId: string): Promise<void> {
     await friendService.post<any[]>('/friends/add', {
         friend_id: friendId
     });

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./nav-bar.css"
-import { Handshake, LayoutDashboard, LogOut, Mic, UserRound } from "lucide-react";
+import { Handshake, LogOut, MessageCircle, Mic, UserRound } from "lucide-react";
 
 export default function NavBar() {
     const { t } = useTranslation();
@@ -13,7 +13,7 @@ export default function NavBar() {
     return (
         <>
             <nav className="nav">
-                <NavLink to="/dashboard"><LayoutDashboard />{t('menu.dashboard')}</NavLink>
+                <NavLink to="/chats"><MessageCircle />{t('menu.chats')}</NavLink>
                 <NavLink to="/connect"><Handshake />{t('menu.connect')}</NavLink>
                 <NavLink to="/voiceroom"><Mic />{t('menu.voiceroom')}</NavLink>
                 <NavLink to="/profile"><UserRound />{t('menu.profile')}</NavLink>

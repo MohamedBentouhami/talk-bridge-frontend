@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashBoardPage from "./pages/dashboard-page/dashboard";
+import ChatsPage from "./pages/chats-page/chats.page";
 import HomePage from "./pages/home-page/home-page";
 import PartnerPage from "./pages/language-partner-page/language-partner-page";
 import VoiceroomPage from "./pages/voiceroom-page/voiceroom-page";
@@ -19,7 +19,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path="/dashboard" element={<DashBoardPage />}>
+            <Route path="/chats" element={<ChatsPage />}>
             </Route>
             <Route path="/connect" element={<PartnerPage />}>
             </Route>

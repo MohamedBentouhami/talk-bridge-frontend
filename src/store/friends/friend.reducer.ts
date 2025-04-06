@@ -1,18 +1,34 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { Person } from '../../@types/friend';
-import { friendsFetch } from './friend.action';
+import { Person } from '../../@types/person';
+import { friendsFetch, partnersFetch, requestersFetch, } from './friend.action';
 
 type FriendState = {
     isLoadingFriend: boolean;
     friends?: Person[];
     errorFriend?: string;
-    
+
+    isLoadingPartners: boolean;
+    partners?: Person[];
+    errorPartner?: string;
+
+    isLoadingRequester: boolean;
+    requesters?: Person[];
+    errorRequester?: string;
+
 };
 
 const initialState: FriendState = {
     isLoadingFriend: false,
-    friends: [],
-    errorFriend: undefined
+    friends: undefined,
+    errorFriend: undefined,
+
+    isLoadingPartners: false,
+    partners: undefined,
+    errorPartner: undefined,
+
+    isLoadingRequester: false,
+    requesters: undefined,
+    errorRequester: undefined
 };
 
 const friendsReducer = createReducer(initialState, (builder) => {
@@ -28,7 +44,33 @@ const friendsReducer = createReducer(initialState, (builder) => {
         .addCase(friendsFetch.rejected, (state, action) => {
             state.isLoadingFriend = false;
             state.errorFriend = action.error.message ?? 'Failed to fetch friends';
-        });
+        })
+
+        .addCase(partnersFetch.pending, (state) => {
+            state.isLoadingPartners = true;
+            state.errorPartner = undefined;
+        })
+        .addCase(partnersFetch.fulfilled, (state, action) => {
+            state.isLoadingPartners = false;
+            state.partners = action.payload;
+        })
+        .addCase(partnersFetch.rejected, (state, action) => {
+            state.isLoadingPartners = false;
+            state.errorPartner = action.error.message ?? 'Failed to fetch friends';
+        })
+
+        .addCase(requestersFetch.pending, (state) => {
+            state.isLoadingRequester = true;
+            state.errorRequester = undefined;
+        })
+        .addCase(requestersFetch.fulfilled, (state, action) => {
+            state.isLoadingRequester = false;
+            state.requesters = action.payload;
+        })
+        .addCase(requestersFetch.rejected, (state, action) => {
+            state.isLoadingRequester = false;
+            state.errorRequester = action.error.message ?? 'Failed to fetch friends';
+        })
 });
 
 export default friendsReducer;

@@ -1,15 +1,33 @@
-import useSWR from "swr"
-import { fetchNewPartners } from "../../services/user.service"
 import Loader from "../../components/loader/loader";
 import NewPartnerList from "../../containers/new-partner-list/new-partner-list";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
+import { partnersFetch } from "../../store/friends/friend.action";
+import { useEffect } from "react";
 
 export default function PartnerPage() {
-    // TODO get it from the local storage info
+    const { t } = useTranslation();
+    const dispatch = useDispatch<AppDispatch>();
     const lg: string = localStorage.getItem("learning_language") ?? "en";
-    const { data, error, isLoading } = useSWR('api/users', () => fetchNewPartners(lg))
-    if (error) return <div>Error loading partners...</div>;
+    const { isLoadingPartners, partners, errorPartner } = useSelector((state: RootState) => state.friend);
+    useEffect(() => {
+        if (!isLoadingPartners && !errorPartner && partners === undefined) {
+            dispatch(partnersFetch(lg));
+        }
+    }, [dispatch, isLoadingPartners, errorPartner, partners]);
+
+    if (errorPartner) return <div>Error loading partners...</div>;
     return <div>
-        <h1>Find a partner</h1>
-        {isLoading ? <Loader /> : <NewPartnerList newPartners={data || []}></NewPartnerList>}
+        <h1>{t('connect.title')}</h1>
+        {isLoadingPartners ?
+            <Loader /> :
+            (partners != undefined && partners!.length > 0) ?
+                <NewPartnerList newPartners={partners || []}></NewPartnerList>
+                : errorPartner ? (
+                    <p>{errorPartner}</p>
+                ) : (
+                    <p>No friends found.</p>
+                )}
     </div>
 }

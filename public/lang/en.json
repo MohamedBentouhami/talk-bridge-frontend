@@ -4,7 +4,7 @@
     },
     "menu": {
         "home": "Home",
-        "dashboard": "Dashboard",
+        "chats": "Chats",
         "connect": "Connect",
         "voiceroom": "Voice Room",
         "profile": "Profile",
@@ -37,7 +37,12 @@
         "get-start": "GET STARTED",
         "have-account": "I ALREADY HAVE AN ACCOUNT"
     },
-    "dashboard": {
+    "chats": {
         "noChatMessage": "Select a conversation from the side bar to start chatting"
+    },
+    "connect": {
+        "title": "Find language partners",
+        "addPartner": "Add Partner",
+        "requestSent": "Pending Approval"
     }
 }

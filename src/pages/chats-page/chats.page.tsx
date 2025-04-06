@@ -1,12 +1,12 @@
 import ChatContainer from "../../containers/chat-container/chat-container";
 import NoChatContainer from "../../containers/chat-container/no-chat-container";
 import SideBar from "../../containers/sidebar/sidebar";
-import "./dashboard.css"
+import "./chats.css"
 
-export default function DashBoardPage() {
+export default function ChatsPage() {
     const selectedUser = undefined;
 
-    return <div className="dashboard-page"><SideBar />
+    return <div className="chats-page"><SideBar />
         {selectedUser ? <ChatContainer /> : <NoChatContainer />}
     </div>
 }

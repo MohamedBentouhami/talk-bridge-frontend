@@ -3,39 +3,42 @@ import { AppDispatch, RootState } from '../../store/store';
 import { friendsFetch } from '../../store/friends/friend.action';
 import Loader from '../../components/loader/loader';
 import './sidebar.css';
+import { useEffect } from 'react';
 
 const FriendsList = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const server = import.meta.env.VITE_SERVER_IMAGES;
+    const imgServer = import.meta.env.VITE_SERVER_IMAGES;
 
-    const { isLoadingFriend: isLoading, friends, errorFriend: error } = useSelector((state: RootState) => state.friend);
+    const { isLoadingFriend, friends, errorFriend } = useSelector((state: RootState) => state.friend);
 
-    if (!isLoading && !friends!.length && !error) {
-        dispatch(friendsFetch());
-    }
+    useEffect(() => {
+        if (!isLoadingFriend && !errorFriend && friends === undefined) {
+            dispatch(friendsFetch());
+        }
+    }, [dispatch, isLoadingFriend, errorFriend, friends]);
 
     return (
         <div className="friends-sidebar">
-            {isLoading ? (
+            {isLoadingFriend ? (
                 <Loader />
-            ) : friends!.length > 0 ? (
+            ) : (friends != undefined && friends!.length > 0) ? (
                 <div>
                     <h3 className="sidebar-title">Friends</h3>
                     <ul className="friends-list">
                         {friends!.map(friend => (
                             <li key={friend.id} className="friend-item">
-                                <img 
-                                    className="friend-image" 
-                                    src={`${server}${friend.profilePict}`} 
-                                    alt={`${friend.firstName} ${friend.lastName}`} 
+                                <img
+                                    className="friend-image"
+                                    src={`${imgServer}${friend.profilePict}`}
+                                    alt={`${friend.firstName} ${friend.lastName}`}
                                 />
                                 <p className="friend-name">{friend.firstName} {friend.lastName}</p>
                             </li>
                         ))}
                     </ul>
                 </div>
-            ) : error ? (
-                <p>{error}</p>
+            ) : errorFriend ? (
+                <p>{errorFriend}</p>
             ) : (
                 <p>No friends found.</p>
             )}

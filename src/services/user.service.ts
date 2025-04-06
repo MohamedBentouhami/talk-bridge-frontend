@@ -1,5 +1,5 @@
 import axios from "axios";
-import { User } from "../@types/user";
+import { Person } from "../@types/person";
 
 const userService = axios.create({
     baseURL: import.meta.env.VITE_API_URL
@@ -13,7 +13,7 @@ userService.interceptors.request.use((config) => {
     return config;
 });
 
-export async function fetchNewPartners(lg: string): Promise<User[]> {
-    const response = await userService.get<User[]>(`/users/${lg}`);
+export async function fetchNewPartners(lg: string): Promise<Person[]> {
+    const response = await userService.get<Person[]>(`/users/${lg}`);
     return response.data;
 }

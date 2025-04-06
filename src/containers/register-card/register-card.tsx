@@ -42,7 +42,7 @@ export default function RegisterCard() {
             const response = await signup(formData);
             storeUserToken(response);
             socket.emit("auth", response.data.user.id)
-            await navigate( "/dashboard");
+            await navigate( "/chats");
         } catch (error: any) {
             setError(error);
             console.log(error)
