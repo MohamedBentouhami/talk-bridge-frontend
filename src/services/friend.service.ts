@@ -29,9 +29,20 @@ export async function getMessages(friendId: string) {
     return response.data;
 }
 
-export default async function addFriendRequest(friendId: string): Promise<void> {
+export async function addFriendRequest(friendId: string): Promise<void> {
     await friendService.post<any[]>('/friends/add', {
         friend_id: friendId
     });
 
+}
+
+export async function acceptFriendRequest(friendId: string) {
+    await friendService.patch<any[]>('/friends/accept', {
+        friend_id: friendId
+    })
+}
+export async function refuseFriendRequest(friendId: string) {
+    await friendService.delete<any[]>('/friends/refuse', {
+        data: { friend_id: friendId }
+    })
 }

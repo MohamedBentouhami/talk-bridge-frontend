@@ -4,8 +4,6 @@ import Loader from "../loader/loader";
 import { requestersFetch } from "../../store/friends/friend.action";
 import "./friend-request.css"
 import { useEffect } from "react";
-import addFriendRequest from "../../services/friend.service";
-import FriendRequestCard from "./friend-request-card";
 import FriendRequestItem from "./friend-request-card";
 
 export default function FriendRequests() {

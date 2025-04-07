@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Person } from '../../@types/person';
-import { addRequester, friendsFetch, partnersFetch, removeRequester, requestersFetch, } from './friend.action';
+import { addFriend, addRequester, friendsFetch, partnersFetch, removePartner, removeRequester, requestersFetch } from './friend.action';
 
 type FriendState = {
     isLoadingFriend: boolean;
@@ -71,16 +71,21 @@ const friendsReducer = createReducer(initialState, (builder) => {
             state.isLoadingRequester = false;
             state.errorRequester = action.error.message ?? 'Failed to fetch friends';
         })
-        .addCase(addRequester, (state, action)=>{
-            console.log(action.payload)
+        .addCase(addRequester, (state, action) => {
             const requester = action.payload;
             state.requesters?.push(requester);
         })
-        .addCase(removeRequester, (state, action)=>{
-            console.log(action.payload)
+        .addCase(removeRequester, (state, action) => {
             const requesterId = action.payload;
             state.requesters = state.requesters?.filter(requester => requester.id !== requesterId);
         })
+        .addCase(addFriend, (state, action) => {
+            const newFriend = action.payload;
+            state.friends?.push(newFriend);
+        }).addCase(removePartner, (state, action) => {
+            const partnerId = action.payload;
+            state.partners = state.partners?.filter(partner => partner.id !== partnerId);
+        });
 });
 
 export default friendsReducer;

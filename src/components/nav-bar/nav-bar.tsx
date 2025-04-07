@@ -1,15 +1,11 @@
 import { useTranslation } from "react-i18next";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./nav-bar.css"
-import { Hammer, Handshake, LogOut, MessageCircle, Mic, UserRound } from "lucide-react";
+import { Hammer, Handshake, MessageCircle, Mic, UserRound } from "lucide-react";
+import LogoutButton from "../logout-button/logout-button";
 
 export default function NavBar() {
     const { t } = useTranslation();
-    const navigation = useNavigate();
-    const handleLogout = () =>{
-        localStorage.setItem("token", "");
-        navigation("/");
-    }
     return (
         <>
             <nav className="nav">
@@ -18,10 +14,7 @@ export default function NavBar() {
                 <NavLink to="/voiceroom"><Mic />{t('menu.voiceroom')}</NavLink>
                 <NavLink to="/tools"><Hammer />{t('menu.tools')}</NavLink>
                 <NavLink to="/profile"><UserRound />{t('menu.profile')}</NavLink>
-                <button className="logout-btn" onClick={handleLogout}>
-                    <LogOut />
-                    {t('menu.logout')}
-                </button>
+                <LogoutButton></LogoutButton>
             </nav>
         </>
     );

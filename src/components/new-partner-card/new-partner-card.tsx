@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./new-partner-card.css"
 import { Person } from "../../@types/person";
 import { MoveHorizontal, UserRoundPlus } from "lucide-react";
-import addFriendRequest from "../../services/friend.service";
+import { addFriendRequest } from "../../services/friend.service";
 import { useTranslation } from "react-i18next";
 
 type NewPartnerCardProps = {

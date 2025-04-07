@@ -22,11 +22,11 @@ export default function LoginCard() {
             const response = await login(email, password);
             storeUserToken(response);
             socket.emit("auth", response.data.user.id)
-            await navigate("/chats")
+            navigate("/chats")
         } catch (error: any) {
             console.log(error);
             setError(error);
-        }finally{
+        } finally {
             setLoading(false);
         }
     }

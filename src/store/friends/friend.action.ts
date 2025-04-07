@@ -13,7 +13,7 @@ export const friendsFetch = createAsyncThunk(
 );
 export const partnersFetch = createAsyncThunk(
     'partner/fetch',
-    async (lg : string) => {
+    async (lg: string) => {
         try {
             const response = await fetchNewPartners(lg);
             return response;
@@ -36,12 +36,26 @@ export const requestersFetch = createAsyncThunk(
     }
 );
 
-export const addRequester = createAction("requester/add", (newFriend : Person)=>{
+
+export const addFriend = createAction("friend/add", (newFriend: Person) => {
     return {
         payload: newFriend
     }
+});
+
+export const removePartner = createAction("partner/remove", (partnerId: string) => {
+    return {
+        payload: partnerId
+    }
+});
+
+
+export const addRequester = createAction("requester/add", (newRequester: Person) => {
+    return {
+        payload: newRequester
+    }
 })
-export const removeRequester = createAction("requester/remove", (requesterId : string)=>{
+export const removeRequester = createAction("requester/remove", (requesterId: string) => {
     return {
         payload: requesterId
     }
