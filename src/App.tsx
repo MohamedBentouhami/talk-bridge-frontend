@@ -7,10 +7,11 @@ import ProfilePage from "./pages/profile-page/profile-page";
 import LoginPage from "./pages/login-page/login-page";
 import RegisterPage from "./pages/register-page/register-page";
 import ProtectedRoutes from "./utils/protected-routes/protected_routes";
+import ToolsPage from "./pages/tools-page/tools-page";
 
 function App() {
 
-  
+
   return (
     <>
       <Router>
@@ -22,6 +23,8 @@ function App() {
             <Route path="/chats" element={<ChatsPage />}>
             </Route>
             <Route path="/connect" element={<PartnerPage />}>
+            </Route>
+            <Route path="/tools" element={<ToolsPage />}>
             </Route>
             <Route path="/voiceroom" element={<VoiceroomPage />}>
             </Route>

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/loader";
 import storeUserToken from "../../utils/handle-local-storage/handle-local-storage";
 import socket from "../../socket";
+import adaptData from "../../utils/common/tools";
 
 export default function RegisterCard() {
     const { t } = useTranslation();
@@ -38,8 +39,10 @@ export default function RegisterCard() {
     const handleRegisterForm = async (e: React.MouseEvent) => {
         e.preventDefault();
         try {
+            const correctData = adaptData(formData);
+            console.log(correctData)
             setIsLoading(true);
-            const response = await signup(formData);
+            const response = await signup(correctData);
             storeUserToken(response);
             socket.emit("auth", response.data.user.id)
             await navigate( "/chats");

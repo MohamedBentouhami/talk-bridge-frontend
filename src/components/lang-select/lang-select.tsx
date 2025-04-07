@@ -1,14 +1,27 @@
 import { useTranslation } from "react-i18next";
-import { LANGUAGES } from "../../constants/lang.constant";
+import { LANGUAGES_APP } from "../../constants/lang.constant";
+import ReactFlagsSelect from "react-flags-select";
+import { useState } from "react";
+import "./lang-select.css"
 
 export default function LangSelect() {
     const { i18n } = useTranslation();
+    const [selected, setSelected] = useState("");
 
-    const handleChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const code = e.target.value;
+    const handleChangeLang = (code: string) => {
+        setSelected(code)
+        console.log(code)
         i18n.changeLanguage(code);
     }
-    return <select defaultValue={i18n.language} onChange={handleChangeLang}>
-        {LANGUAGES.map((lg) => <option key={lg.code} value={lg.code}> {lg.label}</option>)}
-    </select>
+
+    return <div>
+        <ReactFlagsSelect
+            countries={["GB", "FR", "BE"]}
+            customLabels={LANGUAGES_APP}
+            placeholder="Select Language"
+            onSelect={code => handleChangeLang(code)}
+            selected={selected}
+        />
+    </div>
+
 }

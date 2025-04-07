@@ -27,7 +27,7 @@ export default function PartnerPage() {
                 : errorPartner ? (
                     <p>{errorPartner}</p>
                 ) : (
-                    <p>No friends found.</p>
+                    <p>No Partners found.</p>
                 )}
     </div>
 }

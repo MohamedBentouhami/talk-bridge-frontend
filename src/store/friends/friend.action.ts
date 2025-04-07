@@ -36,8 +36,13 @@ export const requestersFetch = createAsyncThunk(
     }
 );
 
-export const addFriend = createAction("friend/add", (newFriend : Person)=>{
+export const addRequester = createAction("requester/add", (newFriend : Person)=>{
     return {
         payload: newFriend
+    }
+})
+export const removeRequester = createAction("requester/remove", (requesterId : string)=>{
+    return {
+        payload: requesterId
     }
 })
