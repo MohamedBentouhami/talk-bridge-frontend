@@ -5,7 +5,7 @@ import Loader from '../../components/loader/loader';
 import './sidebar.css';
 import { useEffect } from 'react';
 
-const FriendsList = () => {
+export default function FriendsList({ selectedUser, onSelectFriend }: any) {
     const dispatch = useDispatch<AppDispatch>();
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
 
@@ -17,6 +17,10 @@ const FriendsList = () => {
         }
     }, [dispatch, isLoadingFriend, errorFriend, friends]);
 
+    const handleFriendSelection = (friendId: string) => {
+        onSelectFriend(friendId)
+    }
+
     return (
         <div className="friends-sidebar">
             {isLoadingFriend ? (
@@ -26,7 +30,7 @@ const FriendsList = () => {
                     <h3 className="sidebar-title">Friends</h3>
                     <ul className="friends-list">
                         {friends!.map(friend => (
-                            <li key={friend.id} className="friend-item">
+                            <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id)}>
                                 <img
                                     className="friend-image"
                                     src={`${imgServer}${friend.profilePict}`}
@@ -46,4 +50,3 @@ const FriendsList = () => {
     );
 };
 
-export default FriendsList;

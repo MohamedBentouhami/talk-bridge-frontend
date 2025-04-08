@@ -1,12 +1,14 @@
 .partner-card {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     background-color: var(--secondary-bg-color);
     padding: 16px;
     border-radius: 12px;
     width: 50%;
+    min-height: 150px;
+    gap: 20px;
 
 }
 
@@ -25,6 +27,7 @@
 .partner-info {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .partner-info div {
@@ -72,6 +75,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    align-self: flex-start;
 }
 
 .add-button:hover {

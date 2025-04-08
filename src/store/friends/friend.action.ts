@@ -49,6 +49,12 @@ export const removePartner = createAction("partner/remove", (partnerId: string) 
     }
 });
 
+export const updatePartner = createAction("partner/update", (partnerId: string, isPending: boolean) => {
+    return {
+        payload: { partnerId, isPending }
+    }
+})
+
 
 export const addRequester = createAction("requester/add", (newRequester: Person) => {
     return {
@@ -60,3 +66,4 @@ export const removeRequester = createAction("requester/remove", (requesterId: st
         payload: requesterId
     }
 })
+

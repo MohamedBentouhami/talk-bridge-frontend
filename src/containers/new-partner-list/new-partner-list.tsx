@@ -1,5 +1,6 @@
 import { Person } from "../../@types/person";
 import NewPartnerCard from "../../components/new-partner-card/new-partner-card";
+import "./new-partner-list.css"
 
 export default function NewPartnerList( { newPartners }: { newPartners: Person[]}) {
     

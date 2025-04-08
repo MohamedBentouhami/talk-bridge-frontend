@@ -1,9 +1,11 @@
-import { useState } from "react";
 import "./new-partner-card.css"
 import { Person } from "../../@types/person";
 import { MoveHorizontal, UserRoundPlus } from "lucide-react";
 import { addFriendRequest } from "../../services/friend.service";
 import { useTranslation } from "react-i18next";
+import { updatePartner } from "../../store/friends/friend.action";
+import { AppDispatch } from "../../store/store";
+import { useDispatch } from "react-redux";
 
 type NewPartnerCardProps = {
     user: Person;
@@ -11,11 +13,12 @@ type NewPartnerCardProps = {
 
 export default function NewPartnerCard({ user }: NewPartnerCardProps) {
     const { t } = useTranslation();
-    const [isRequestSend, setRequest] = useState(user.isPending);
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleAddPartner = async () => {
-        setRequest(true);
+        //setRequest(true);
+        dispatch(updatePartner(user.id, true))
         await addFriendRequest(user.id);
     };
 
@@ -34,10 +37,10 @@ export default function NewPartnerCard({ user }: NewPartnerCardProps) {
             </div>
             <button
                 onClick={handleAddPartner}
-                disabled={isRequestSend}
+                disabled={user.isPending ?? false}
                 className="add-button"
             >
-                {isRequestSend ? t('connect.requestSent') : t('connect.addPartner')}
+                {user.isPending ?? false ? t('connect.requestSent') : t('connect.addPartner')}
                 <UserRoundPlus />
             </button>
             <div>

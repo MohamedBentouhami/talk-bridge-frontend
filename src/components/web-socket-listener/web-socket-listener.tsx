@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
 import socket from "../../socket";
 import { useEffect } from "react";
-import { addFriend, addRequester, removePartner } from "../../store/friends/friend.action";
+import { addFriend, addRequester, removePartner, updatePartner } from "../../store/friends/friend.action";
+import { AppDispatch } from "../../store/store";
 
 export default function WebSocketListener() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     useEffect(() => {
         console.log('Socket connected:', socket.connected);
         if (Notification.permission !== "granted") {
@@ -26,6 +27,10 @@ export default function WebSocketListener() {
             dispatch(addFriend(data.newFriend));
             dispatch(removePartner(data.newFriend.id));
 
+        });
+        socket.on("cancel_friend", (data) => {
+            console.log("Received refused friend:", data.userId);
+            dispatch(updatePartner(data.userId, false));
         });
     
         return () => {

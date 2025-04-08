@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
-import { addFriend, removePartner, removeRequester } from "../../store/friends/friend.action";
+import { addFriend, removePartner, removeRequester, updatePartner } from "../../store/friends/friend.action";
 import { acceptFriendRequest, refuseFriendRequest } from "../../services/friend.service";
+import { AppDispatch } from "../../store/store";
 
 export default function FriendRequestItem({ requester }: any) {
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleAcceptFriend = async () => {
         const requesterId = requester.id; 
@@ -17,6 +18,7 @@ export default function FriendRequestItem({ requester }: any) {
         const requesterId = requester.id;
         await refuseFriendRequest(requesterId);
         dispatch(removeRequester(requesterId))
+        dispatch(updatePartner(requesterId, false));
     }
 
     return (
