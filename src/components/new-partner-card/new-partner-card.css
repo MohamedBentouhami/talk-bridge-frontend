@@ -65,8 +65,8 @@
 }
 
 .add-button {
-    background-color: #5a416b;
-    color: #fff;
+    background-color: snow;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -76,11 +76,13 @@
     align-items: center;
     cursor: pointer;
     align-self: flex-start;
+    width: 15em;
 }
 
-.add-button:hover {
+.add-button:not(:disabled):hover {
     transform: translateY(-5px);
     background-color: var(--main-bg-color);
+    color: white;
 }
 
 

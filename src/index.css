@@ -1,20 +1,20 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --main-bg-color: #212121;
-    --secondary-bg-color: #452c63;
-    --main-linear-gradient: linear-gradient(to left, #5a416b, #8241b8);
+    --secondary-bg-color: #523d68;
 }
 
-body{
+body {
     font-family: "Poppins", sans-serif;
     color: snow;
     background: var(--main-bg-color);
 }
+
 ul {
     li {
         list-style: none;

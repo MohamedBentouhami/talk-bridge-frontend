@@ -4,11 +4,12 @@ import { friendsFetch } from '../../store/friends/friend.action';
 import Loader from '../../components/loader/loader';
 import './sidebar.css';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function FriendsList({ selectedUser, onSelectFriend }: any) {
     const dispatch = useDispatch<AppDispatch>();
+    const {t} = useTranslation();
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
-
     const { isLoadingFriend, friends, errorFriend } = useSelector((state: RootState) => state.friend);
 
     useEffect(() => {
@@ -27,7 +28,7 @@ export default function FriendsList({ selectedUser, onSelectFriend }: any) {
                 <Loader />
             ) : (friends != undefined && friends!.length > 0) ? (
                 <div>
-                    <h3 className="sidebar-title">Friends</h3>
+                    <h3 className="sidebar-title">{t('chats.sidebar-title')}</h3>
                     <ul className="friends-list">
                         {friends!.map(friend => (
                             <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id)}>

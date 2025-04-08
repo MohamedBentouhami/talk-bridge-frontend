@@ -1,4 +1,4 @@
-import { createReducer, isPending } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 import { Person } from '../../@types/person';
 import { addFriend, addRequester, friendsFetch, partnersFetch, removePartner, removeRequester, requestersFetch, updatePartner } from './friend.action';
 

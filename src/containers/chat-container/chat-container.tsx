@@ -1,8 +1,11 @@
 import useSWR from "swr"
-import { fetchMessages } from "../../services/friend.service"
+import { fetchMessages, sendMessage } from "../../services/friend.service"
 import Loader from "../../components/loader/loader";
 import { useEffect, useState } from "react";
 import { Message } from "../../@types/message";
+import "./chat-container.css"
+import socket from "../../socket";
+import { nanoid } from "nanoid";
 
 type ChatContainerProps = {
     friendId: string
@@ -19,22 +22,35 @@ export default function ChatContainer({ friendId }: ChatContainerProps) {
         }
     }, [data])
 
-    const handleSendMessage = () => {
+
+    const handleSendMessage = async () => {
         const msg : Message = {
-            id: "",
+            id: nanoid(),
             senderId: "",
             receiverId: friendId,
             content: newMessage
         }
-        setNewMessage("");
+        await sendMessage(friendId, newMessage);
         setMessages([...messages, msg]);
-        // requête api
+        setNewMessage("");
     }
+
+    useEffect(()=>{
+        socket.on("new_message", (data)=>{
+            console.log(data.newMessage);
+            setMessages([...messages, data.newMessage ])
+        })
+        
+        return ()=>{
+            socket.off("new_message");
+        }
+    })
 
 
     if (error) return <div>{error}</div>
 
-    return <>
+    return <div className="chat-container">
+
         {
             isLoading ? <Loader></Loader> : <div>
 
@@ -53,5 +69,6 @@ export default function ChatContainer({ friendId }: ChatContainerProps) {
                 </div>
             </div>
         }
-    </>
+        </div>
+    
 }

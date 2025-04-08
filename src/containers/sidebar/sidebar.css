@@ -1,6 +1,6 @@
 .friends-sidebar {
     background-color: var(--secondary-bg-color);
-    width: 250px;
+    width: 255px;
     height: 100vh;
     padding: 20px;
     display: flex;
@@ -30,11 +30,12 @@
     padding: 10px;
     margin: 8px 0;
     border-radius: 10px;
-    transition: background-color 0.1s ease
+    transition: background-color 0.1s ease;
+    width: 100%;
 }
 
 .friend-item:hover {
-    background-color: rgba(130, 65, 184, 0.6);
+    background-color: #2a2a48;
 }
 
 .friend-image {
@@ -54,5 +55,5 @@
 }
 
 .selected{
-    background-color: grey;
+    background-color: #2a2a48;
 }

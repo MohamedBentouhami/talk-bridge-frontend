@@ -5,6 +5,11 @@
     button{
         border: none;
     }
+    ul{
+        li{
+            width: 100%;
+        }
+    }
 }
 .ReactFlagsSelect-module_label__27pw9{
     color: black;

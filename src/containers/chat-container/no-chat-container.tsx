@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import "./no-chat-container.css";
+import "./chat-container.css"
 
 export default function NoChatContainer() {
     const {t} = useTranslation();
