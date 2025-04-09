@@ -6,8 +6,10 @@ import "./chats.css"
 
 export default function ChatsPage() {
     const [selectedUser, setSelectedUser] = useState("");
+    const [profilePict, setProfilePict] = useState("");
 
-    return <div className="chats-page"><SideBar selectedUser={selectedUser} onSelectFriend= {setSelectedUser}/>
-        {selectedUser ? <ChatContainer friendId={selectedUser} /> : <NoChatContainer />}
+
+    return <div className="chats-page"><SideBar selectedUser={selectedUser} onSelectFriend={setSelectedUser} onSelectProfile={setProfilePict} />
+        {selectedUser ? <ChatContainer friendId={selectedUser} profilePict={profilePict} /> : <NoChatContainer />}
     </div>
 }

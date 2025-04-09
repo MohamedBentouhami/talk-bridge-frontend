@@ -47,10 +47,11 @@ export async function fetchMessages(friendId: string) {
 }
 
 export async function sendMessage(friendId: string, message: string) {
-    const response = await friendService.post<any[]>(`/messages/add`, {
+    const response = await friendService.post<Message>(`/messages/add`, {
         friend_id: friendId,
         message
     })
+    console.log(response.data);
     return response.data;
 
 }

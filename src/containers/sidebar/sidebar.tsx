@@ -6,7 +6,7 @@ import './sidebar.css';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function FriendsList({ selectedUser, onSelectFriend }: any) {
+export default function FriendsList({ selectedUser, onSelectFriend, onSelectProfile }: any) {
     const dispatch = useDispatch<AppDispatch>();
     const {t} = useTranslation();
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
@@ -18,8 +18,9 @@ export default function FriendsList({ selectedUser, onSelectFriend }: any) {
         }
     }, [dispatch, isLoadingFriend, errorFriend, friends]);
 
-    const handleFriendSelection = (friendId: string) => {
+    const handleFriendSelection = (friendId: string, friendProfilePict: string) => {
         onSelectFriend(friendId)
+        onSelectProfile(friendProfilePict)
     }
 
     return (
@@ -31,7 +32,7 @@ export default function FriendsList({ selectedUser, onSelectFriend }: any) {
                     <h3 className="sidebar-title">{t('chats.sidebar-title')}</h3>
                     <ul className="friends-list">
                         {friends!.map(friend => (
-                            <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id)}>
+                            <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id, friend.profilePict)}>
                                 <img
                                     className="friend-image"
                                     src={`${imgServer}${friend.profilePict}`}

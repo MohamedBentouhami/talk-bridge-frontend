@@ -4,4 +4,5 @@ export default function storeUserToken(response: any) {
     localStorage.setItem("first_name", response.data.user.first_name);
     localStorage.setItem("last_name", response.data.user.last_name);
     localStorage.setItem("learning_language", response.data.user.learning_language)
+    localStorage.setItem("profile_pict", response.data.user.profile_pict)
 }  

@@ -1,0 +1,109 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 83vh;
+    padding: 20px;
+    overflow: hidden;
+    justify-content: space-around;
+    margin: 0 5em;
+}
+
+
+.message-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-right: 10px;
+    padding-left: 5px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+    gap: 12px;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 15px;
+    line-height: 1.5;
+    word-break: break-word;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.message.sent{
+    align-self: flex-end;
+    background-color: var(--secondary-bg-color);
+    border-radius: 16px 16px 0 16px;
+}
+
+.message.received{
+    align-self: flex-start;
+    background-color: #333;
+    border-radius: 16px 16px 16px 0;
+    padding-left: 50px;
+    position: relative;
+    margin-left: 3em;
+}
+
+.avatar{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: -35px;
+    bottom: -1px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #888;
+}
+
+.message-content{
+    z-index: 1;
+}
+.no-messages{
+    text-align: center;
+    color: #aaa;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.input-container{
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.message-input{
+    flex-grow: 1;
+    padding: 12px 16px;
+    border-radius: 25px;
+    border: 1px solid #666;
+    font-size: 15px;
+    background-color: #2e2e2e;
+    outline: none;
+    color: var(--main-color);
+    &:focus{
+        border-color: var(--secondary-bg-color);
+    }
+}
+
+.send-button{
+    background-color: var(--secondary-bg-color);
+    color: var(--main-color);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3 ease;
+    &:hover{
+        background-color: #674b88;
+    }
+}

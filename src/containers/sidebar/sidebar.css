@@ -1,7 +1,7 @@
 .friends-sidebar {
     background-color: var(--secondary-bg-color);
     width: 255px;
-    height: 100vh;
+    height: 91vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
 }
 
 .friend-item:hover {
-    background-color: #2a2a48;
+    opacity: 0.5;
 }
 
 .friend-image {

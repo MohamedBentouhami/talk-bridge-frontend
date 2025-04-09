@@ -10,9 +10,3 @@
     font-size: 1.125rem;
 }
 
-.chat-container {
-    display: flex;
-    height: 80%;
-    align-items: center;
-    justify-content: center;
-}

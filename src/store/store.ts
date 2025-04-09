@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import FriendReducer from "./friends/friend.reducer";
+import messageReducer from "./messages/message.reducer";
 
 
 const store = configureStore({
     reducer: {
-        friend: FriendReducer
+        friend: FriendReducer,
+        message: messageReducer
     }
 })
 
