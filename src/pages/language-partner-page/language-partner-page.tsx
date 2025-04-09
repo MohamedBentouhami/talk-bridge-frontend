@@ -12,10 +12,8 @@ export default function PartnerPage() {
     const lg: string = localStorage.getItem("learning_language") ?? "en";
     const { isLoadingPartners, partners, errorPartner } = useSelector((state: RootState) => state.friend);
     useEffect(() => {
-        if (!isLoadingPartners && !errorPartner && partners === undefined) {
-            dispatch(partnersFetch(lg));
-        }
-    }, [dispatch, isLoadingPartners, errorPartner, partners]);
+        dispatch(partnersFetch(lg));
+    }, []);
 
     if (errorPartner) return <div>Error loading partners...</div>;
     return <div>

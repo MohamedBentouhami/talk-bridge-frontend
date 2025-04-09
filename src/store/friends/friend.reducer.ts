@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { Person } from '../../@types/person';
-import { addFriend, addRequester, friendsFetch, partnersFetch, removePartner, removeRequester, requestersFetch, updatePartner } from './friend.action';
+import { addFriend, addRequester, deleteAll, friendsFetch, partnersFetch, removePartner, removeRequester, requestersFetch, updatePartner } from './friend.action';
 
 type FriendState = {
     isLoadingFriend: boolean;
@@ -94,6 +94,11 @@ const friendsReducer = createReducer(initialState, (builder) => {
             if (partner) {
                 partner.isPending = isPending;
             }
+        })
+        .addCase(deleteAll, (state, action) => {
+            state.friends = undefined
+            state.partners = undefined;
+            state.requesters = undefined;
         });
 });
 

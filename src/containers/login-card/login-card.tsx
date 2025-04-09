@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import { login } from "../../services/auth.service";
 import Loader from "../../components/loader/loader";
 import { useNavigate } from "react-router-dom";
-import socket from "../../socket";
+// import socket from "../../socket";
 import storeUserToken from "../../utils/handle-local-storage/handle-local-storage";
 
 export default function LoginCard() {
@@ -21,7 +21,6 @@ export default function LoginCard() {
             setLoading(true);
             const response = await login(email, password);
             storeUserToken(response);
-            socket.emit("auth", response.data.user.id)
             navigate("/chats")
         } catch (error: any) {
             console.log(error);

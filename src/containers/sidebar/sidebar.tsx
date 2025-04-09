@@ -13,10 +13,8 @@ export default function FriendsList({ selectedUser, onSelectFriend, onSelectProf
     const { isLoadingFriend, friends, errorFriend } = useSelector((state: RootState) => state.friend);
 
     useEffect(() => {
-        if (!isLoadingFriend && !errorFriend && friends === undefined) {
             dispatch(friendsFetch());
-        }
-    }, [dispatch, isLoadingFriend, errorFriend, friends]);
+    }, []);
 
     const handleFriendSelection = (friendId: string, friendProfilePict: string) => {
         onSelectFriend(friendId)

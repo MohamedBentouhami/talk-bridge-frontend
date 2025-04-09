@@ -67,3 +67,5 @@ export const removeRequester = createAction("requester/remove", (requesterId: st
     }
 })
 
+export const deleteAll = createAction("friend/deleteAll");
+

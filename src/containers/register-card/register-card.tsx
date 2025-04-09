@@ -8,7 +8,6 @@ import signup from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/loader";
 import storeUserToken from "../../utils/handle-local-storage/handle-local-storage";
-import socket from "../../socket";
 import adaptData from "../../utils/common/tools";
 
 export default function RegisterCard() {
@@ -40,12 +39,10 @@ export default function RegisterCard() {
         e.preventDefault();
         try {
             const correctData = adaptData(formData);
-            console.log(correctData)
             setIsLoading(true);
             const response = await signup(correctData);
             storeUserToken(response);
-            socket.emit("auth", response.data.user.id)
-            await navigate( "/chats");
+            await navigate("/chats");
         } catch (error: any) {
             setError(error);
             console.log(error)

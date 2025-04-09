@@ -17,7 +17,6 @@ export default function NewPartnerCard({ user }: NewPartnerCardProps) {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleAddPartner = async () => {
-        //setRequest(true);
         dispatch(updatePartner(user.id, true))
         await addFriendRequest(user.id);
     };

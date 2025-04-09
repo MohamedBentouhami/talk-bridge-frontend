@@ -11,17 +11,17 @@ type ChatContainerProps = {
     profilePict: string
 }
 
-export default function ChatContainer({ friendId , profilePict}: ChatContainerProps) {
+export default function ChatContainer({ friendId, profilePict }: ChatContainerProps) {
     const dispatch = useDispatch<AppDispatch>();
     const { messagesByUser, error, isLoading } = useSelector((state: RootState) => state.message);
     const messages = messagesByUser?.[friendId];
 
     useEffect(() => {
         const hasMessagesForFriend = !!messagesByUser[friendId];
-        if (!isLoading && !error && !hasMessagesForFriend) {
+        if (!hasMessagesForFriend) {
             dispatch(messagesFetch(friendId));
         }
-    }, [dispatch, friendId, messagesByUser, isLoading, error]);
+    }, []);
 
 
     if (error) return <div>{error}</div>

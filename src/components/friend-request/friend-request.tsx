@@ -11,10 +11,8 @@ export default function FriendRequests() {
     const { isLoadingRequester, requesters, errorRequester } = useSelector((state: RootState) => state.friend)
 
     useEffect(() => {
-        if (!isLoadingRequester && !errorRequester && requesters === undefined) {
-            dispatch(requestersFetch());
-        }
-    }, [dispatch, isLoadingRequester, errorRequester, requesters]);
+        dispatch(requestersFetch());
+    }, []);
 
 
 
