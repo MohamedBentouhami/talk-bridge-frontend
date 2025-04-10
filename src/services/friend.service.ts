@@ -55,8 +55,9 @@ export async function sendMessage(friendId: string, message: string) {
 }
 
 export default async function addCorrection(idMsg: string, correction: string) {
-    await friendService.patch('/messages/add-correction', {
+    const msgCorrected = await friendService.patch<Message>('/messages/add-correction', {
         "message_id": idMsg,
         "correction_provided": correction
     })
+    return msgCorrected.data;
 }

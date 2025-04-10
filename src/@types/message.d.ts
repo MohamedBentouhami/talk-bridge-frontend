@@ -4,4 +4,6 @@ export type Message = {
     receiverId: string,
     content: string,
     createdAt?: Date;
+    hasBeenCorrected : Boolean;
+    correctionProvided? : string; 
 }

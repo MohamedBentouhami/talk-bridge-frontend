@@ -106,7 +106,7 @@ const friendsReducer = createReducer(initialState, (builder) => {
                 partner.isPending = isPending;
             }
         })
-        .addCase(deleteAll, (state, action) => {
+        .addCase(deleteAll, (state) => {
             state.friends = undefined
             state.partners = undefined;
             state.requesters = undefined;

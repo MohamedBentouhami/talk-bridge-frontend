@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { sendMessage } from "../../services/friend.service";
 import { addMessage } from "../../store/messages/message.action";
-import correctImg from "/src/assets/check.svg"
 import "./message-list.css"
 import DialogDemo from "../correction-dialog/correction-dialog";
+import MessageItem from "./message-item";
 
 type ChatListProps = {
     messages: Message[],
@@ -23,7 +23,6 @@ export default function MessageList({ messages, friendId, profilePict }: ChatLis
         setNewMessage("");
     }
     const myId = localStorage.getItem("id");
-    const imgServer = import.meta.env.VITE_SERVER_IMAGES;
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [openModal, setOpenModal] = useState(false);
     const [correctMsg, setCorrectMsg] = useState<Message | undefined>(undefined);
@@ -44,28 +43,8 @@ export default function MessageList({ messages, friendId, profilePict }: ChatLis
                     {messages && messages.length > 0 ? (
                         messages.map((message: Message) => {
                             const myMessages = message.senderId === myId;
-                            const imgSrc = imgServer + profilePict;
-
-                            return (
-                                <div key={message.id} className={`message ${myMessages ? "sent" : "received"}`}>
-                                    {!myMessages && <img
-                                        id="correct-img"
-                                        src={correctImg}
-                                        alt="correct"
-                                        onClick={() => handleCorrectMsg(message)}
-                                    />}
-                                    {
-                                        !myMessages &&
-                                        <img
-                                            src={imgSrc}
-                                            alt="profile-pict"
-                                            className="avatar"
-                                        />
-                                    }
-                                    <div className="message-content">{message.content}
-                                    </div>
-                                </div>
-                            );
+                            return <MessageItem isMyMessage={myMessages} message={message} profilePict={profilePict} handleCorrectMsg={handleCorrectMsg}>
+                            </MessageItem>;
                         })
                     ) : (
                         <div className="no-messages">No messages yet.</div>

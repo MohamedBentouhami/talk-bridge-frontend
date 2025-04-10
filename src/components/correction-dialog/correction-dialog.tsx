@@ -5,6 +5,8 @@ import { Message } from "../../@types/message";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { useState } from "react";
+import addCorrection from "../../services/friend.service";
+import { correctMessage } from "../../store/messages/message.action";
 
 type DialogDemoProps = {
     open: boolean;
@@ -16,8 +18,8 @@ export function DialogDemo({ open, onOpenChange, messageToCorrect }: DialogDemoP
     const dispatch = useDispatch<AppDispatch>();
     const [msg, setMsg] = useState(messageToCorrect.content)
     const handleCorrection = async () => {
-        console.log(msg);
-        //dispatch
+        await addCorrection(messageToCorrect.id, msg);
+        dispatch(correctMessage(messageToCorrect.id, msg, messageToCorrect.senderId!));
         onOpenChange(false)
     }
     return (

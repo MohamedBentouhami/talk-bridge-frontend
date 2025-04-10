@@ -10,8 +10,16 @@ export const messagesFetch = createAsyncThunk(
     }
 );
 
-export const addMessage = createAction("message/add", (message: Message, friendId : string) => {
+export const addMessage = createAction("message/add", (message: Message, friendId: string) => {
     return {
-        payload: {message, friendId}
+        payload: { message, friendId }
     }
 })
+
+
+export const correctMessage = createAction("message/add-correction", (messageId: string, correctedMsg: string, friendId: string) => {
+    return {
+        payload: { messageId, correctedMsg, friendId }
+    }
+})
+

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { openSocket } from "../../socket";
 import { useEffect } from "react";
 import { addFriend, addRequester, removePartner, updatePartner } from "../../store/friends/friend.action";
