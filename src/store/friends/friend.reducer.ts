@@ -6,14 +6,19 @@ type FriendState = {
     isLoadingFriend: boolean;
     friends?: Person[];
     errorFriend?: string;
+    hasFetchedFriends: boolean;
+
 
     isLoadingPartners: boolean;
     partners?: Person[];
     errorPartner?: string;
+    hasFetchedPartners: boolean;
 
     isLoadingRequester: boolean;
     requesters?: Person[];
     errorRequester?: string;
+    hasFetchedRequester: boolean
+    
 
 };
 
@@ -21,14 +26,17 @@ const initialState: FriendState = {
     isLoadingFriend: false,
     friends: undefined,
     errorFriend: undefined,
+    hasFetchedFriends: false,
 
     isLoadingPartners: false,
     partners: undefined,
     errorPartner: undefined,
+    hasFetchedPartners: false,
 
     isLoadingRequester: false,
     requesters: undefined,
-    errorRequester: undefined
+    errorRequester: undefined,
+    hasFetchedRequester:false
 };
 
 const friendsReducer = createReducer(initialState, (builder) => {
@@ -40,6 +48,7 @@ const friendsReducer = createReducer(initialState, (builder) => {
         .addCase(friendsFetch.fulfilled, (state, action) => {
             state.isLoadingFriend = false;
             state.friends = action.payload;
+            state.hasFetchedFriends = true;
         })
         .addCase(friendsFetch.rejected, (state, action) => {
             state.isLoadingFriend = false;
@@ -53,6 +62,7 @@ const friendsReducer = createReducer(initialState, (builder) => {
         .addCase(partnersFetch.fulfilled, (state, action) => {
             state.isLoadingPartners = false;
             state.partners = action.payload;
+            state.hasFetchedPartners = true;
         })
         .addCase(partnersFetch.rejected, (state, action) => {
             state.isLoadingPartners = false;
@@ -66,6 +76,7 @@ const friendsReducer = createReducer(initialState, (builder) => {
         .addCase(requestersFetch.fulfilled, (state, action) => {
             state.isLoadingRequester = false;
             state.requesters = action.payload;
+            state.hasFetchedRequester = true;
         })
         .addCase(requestersFetch.rejected, (state, action) => {
             state.isLoadingRequester = false;
@@ -99,6 +110,9 @@ const friendsReducer = createReducer(initialState, (builder) => {
             state.friends = undefined
             state.partners = undefined;
             state.requesters = undefined;
+            state.hasFetchedFriends = false;
+            state.hasFetchedPartners = false;
+            state.hasFetchedRequester = false;
         });
 });
 

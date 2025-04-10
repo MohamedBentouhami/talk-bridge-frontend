@@ -17,11 +17,10 @@ export default function ChatContainer({ friendId, profilePict }: ChatContainerPr
     const messages = messagesByUser?.[friendId];
 
     useEffect(() => {
-        const hasMessagesForFriend = !!messagesByUser[friendId];
-        if (!hasMessagesForFriend) {
+        if (!messagesByUser?.[friendId]) {
             dispatch(messagesFetch(friendId));
         }
-    }, []);
+    }, [friendId]);
 
 
     if (error) return <div>{error}</div>

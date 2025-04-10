@@ -9,5 +9,3 @@ export function openSocket() {
 
     return socket;
 }
-
-// export default socket;

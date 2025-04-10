@@ -3,9 +3,8 @@ import defaultImage from "/src/assets/user-round.webp"
 import editImage from "/src/assets/camera.png"
 
 import "./image-upload.css"
-import { registerFormProps } from "../../@types/register-form-props";
 
-export default function ImageUpload({ formData, handleChange, handleFileChange }: registerFormProps) {
+export default function ImageUpload({ handleFileChange }: any) {
     const [profilePict, setProfilePict] = useState(defaultImage);
     const fileUploadRef = useRef<HTMLInputElement>(null);
 

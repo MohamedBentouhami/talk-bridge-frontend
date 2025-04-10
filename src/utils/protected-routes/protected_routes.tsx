@@ -9,7 +9,7 @@ export default function ProtectedRoutes() {
     const token = localStorage.getItem("token");
     return (token ? <>
         <ReduxProvider store={store}>
-            <WebSocketListener/>
+            <WebSocketListener />
             <Header />
             <Outlet />
         </ReduxProvider>

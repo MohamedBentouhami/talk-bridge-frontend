@@ -5,7 +5,7 @@ import { registerFormProps } from "../../@types/register-form-props";
 export default function PersonalInfo({ formData, handleChange , handleFileChange}: registerFormProps) {
     const { t } = useTranslation();
     return <>
-        <ImageUpload formData={formData} handleChange={handleChange} handleFileChange={handleFileChange}></ImageUpload>
+        <ImageUpload handleFileChange={handleFileChange}></ImageUpload>
         <div>
             <label htmlFor="input-first-name">{t('register.firstName')}</label>
             <input type="text" id="input-first-name" name="firstName" value={formData.firstName} onChange={handleChange} />

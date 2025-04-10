@@ -2,18 +2,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store"
 import Loader from "../loader/loader";
 import { requestersFetch } from "../../store/friends/friend.action";
-import "./friend-request.css"
 import { useEffect } from "react";
 import FriendRequestItem from "./friend-request-card";
+import "./friend-request.css"
 
 export default function FriendRequests() {
     const dispatch = useDispatch<AppDispatch>();
-    const { isLoadingRequester, requesters, errorRequester } = useSelector((state: RootState) => state.friend)
+    const { isLoadingRequester, requesters, errorRequester, hasFetchedRequester } = useSelector((state: RootState) => state.friend)
 
     useEffect(() => {
-        dispatch(requestersFetch());
-    }, []);
-
+        if (!hasFetchedRequester) {
+            dispatch(requestersFetch());
+        }
+    }, [hasFetchedRequester]);
 
 
     return <div>

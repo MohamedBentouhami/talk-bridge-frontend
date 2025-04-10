@@ -47,11 +47,16 @@ export async function fetchMessages(friendId: string) {
 }
 
 export async function sendMessage(friendId: string, message: string) {
-    const response = await friendService.post<Message>(`/messages/add`, {
+    const response = await friendService.post<Message>('/messages/add', {
         friend_id: friendId,
         message
     })
-    console.log(response.data);
     return response.data;
+}
 
+export default async function addCorrection(idMsg: string, correction: string) {
+    await friendService.patch('/messages/add-correction', {
+        "message_id": idMsg,
+        "correction_provided": correction
+    })
 }

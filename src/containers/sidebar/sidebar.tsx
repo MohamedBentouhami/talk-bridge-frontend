@@ -10,11 +10,13 @@ export default function FriendsList({ selectedUser, onSelectFriend, onSelectProf
     const dispatch = useDispatch<AppDispatch>();
     const {t} = useTranslation();
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
-    const { isLoadingFriend, friends, errorFriend } = useSelector((state: RootState) => state.friend);
+    const { isLoadingFriend, friends, errorFriend, hasFetchedFriends } = useSelector((state: RootState) => state.friend);
 
     useEffect(() => {
+        if(!hasFetchedFriends){
             dispatch(friendsFetch());
-    }, []);
+        }
+    }, [hasFetchedFriends]);
 
     const handleFriendSelection = (friendId: string, friendProfilePict: string) => {
         onSelectFriend(friendId)

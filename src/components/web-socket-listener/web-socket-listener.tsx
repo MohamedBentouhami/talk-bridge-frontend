@@ -18,10 +18,7 @@ export default function WebSocketListener() {
 
         socket.on("connect", () => {
             if (isCancel) return;
-
             socket.emit("auth", userId)
-
-
             console.log('Socket connected:', socket.connected);
 
             if (Notification.permission !== "granted") {
@@ -60,9 +57,7 @@ export default function WebSocketListener() {
 
         return () => {
             isCancel = true;
-
             if (socket.connected) {
-
                 socket.off("new_request");
                 socket.off("accepted_friend");
                 socket.off("cancel_friend");

@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { sendMessage } from "../../services/friend.service";
 import { addMessage } from "../../store/messages/message.action";
+import correctImg from "/src/assets/check.svg"
 import "./message-list.css"
+import DialogDemo from "../correction-dialog/correction-dialog";
 
 type ChatListProps = {
     messages: Message[],
@@ -23,49 +25,73 @@ export default function MessageList({ messages, friendId, profilePict }: ChatLis
     const myId = localStorage.getItem("id");
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const [openModal, setOpenModal] = useState(false);
+    const [correctMsg, setCorrectMsg] = useState<Message | undefined>(undefined);
+
+    const handleCorrectMsg = (message: Message) => {
+        setOpenModal(true)
+        setCorrectMsg(message)
+    }
 
     useEffect(() => {
-      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
-    return (<div className="chat-container">
-        <div className="message-list">
-            {messages && messages.length > 0 ? (
-                messages.map((message: Message) => {
-                    const myMessages = message.senderId === myId;
-                    const imgSrc = imgServer + profilePict;
+    return (
+        <>
+            <div className="chat-container">
+                <div className="message-list">
+                    {messages && messages.length > 0 ? (
+                        messages.map((message: Message) => {
+                            const myMessages = message.senderId === myId;
+                            const imgSrc = imgServer + profilePict;
 
-                    return (
-                        <div key={message.id} className={`message ${myMessages ? "sent" : "received"}`}>
-                            {
-                                !myMessages &&
-                                <img
-                                    src={imgSrc}
-                                    alt="profile-pict"
-                                    className="avatar"
-                                />
-                            }
-                            <div className="message-content">{message.content}</div>
-                        </div>
-                    );
-                })
-            ) : (
-                <div className="no-messages">No messages yet.</div>
-            )}
-            <div ref={messagesEndRef}></div>
-        </div>
+                            return (
+                                <div key={message.id} className={`message ${myMessages ? "sent" : "received"}`}>
+                                    {!myMessages && <img
+                                        id="correct-img"
+                                        src={correctImg}
+                                        alt="correct"
+                                        onClick={() => handleCorrectMsg(message)}
+                                    />}
+                                    {
+                                        !myMessages &&
+                                        <img
+                                            src={imgSrc}
+                                            alt="profile-pict"
+                                            className="avatar"
+                                        />
+                                    }
+                                    <div className="message-content">{message.content}
+                                    </div>
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <div className="no-messages">No messages yet.</div>
+                    )}
+                    <div ref={messagesEndRef}></div>
+                </div>
 
-        <div className="input-container">
-            <input
-                type="text"
-                className="message-input"
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                placeholder="Type your message..."
-            />
-            <button onClick={handleSendMessage} className="send-button">
-                Send
-            </button>
-        </div>
-    </div>)
+                <div className="input-container">
+                    <input
+                        type="text"
+                        className="message-input"
+                        value={newMessage}
+                        onChange={(e) => setNewMessage(e.target.value)}
+                        placeholder="Type your message..."
+                    />
+                    <button onClick={handleSendMessage} className="send-button">
+                        Send
+                    </button>
+                </div>
+
+            </div>
+            {openModal && <DialogDemo
+                open={openModal}
+                onOpenChange={setOpenModal}
+                messageToCorrect={correctMsg!}
+            />}
+        </>
+    )
 }
