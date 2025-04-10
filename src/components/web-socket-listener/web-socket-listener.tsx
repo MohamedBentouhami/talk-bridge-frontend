@@ -3,7 +3,7 @@ import { openSocket } from "../../socket";
 import { useEffect } from "react";
 import { addFriend, addRequester, removePartner, updatePartner } from "../../store/friends/friend.action";
 import { AppDispatch } from "../../store/store";
-import { addMessage } from "../../store/messages/message.action";
+import { addMessage, correctMessage } from "../../store/messages/message.action";
 
 
 
@@ -50,6 +50,9 @@ export default function WebSocketListener() {
                 console.log("Received Message friend:", data.newMessage);
                 console.log(data.newMessage.senderId);
                 dispatch(addMessage(data.newMessage, data.newMessage.senderId))
+            })
+            socket.on("add_correction", (data) => {
+                dispatch(correctMessage(data.updatedMsg.id, data.updatedMsg.correctionProvided, data.updatedMsg.receiverId))
             })
         })
 

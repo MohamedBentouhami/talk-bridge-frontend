@@ -43,7 +43,7 @@ export default function MessageList({ messages, friendId, profilePict }: ChatLis
                     {messages && messages.length > 0 ? (
                         messages.map((message: Message) => {
                             const myMessages = message.senderId === myId;
-                            return <MessageItem isMyMessage={myMessages} message={message} profilePict={profilePict} handleCorrectMsg={handleCorrectMsg}>
+                            return <MessageItem isMyMessage={myMessages} message={message} profilePict={profilePict} handleCorrectMsg={handleCorrectMsg} key={message.id}>
                             </MessageItem>;
                         })
                     ) : (

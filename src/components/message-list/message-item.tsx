@@ -6,7 +6,7 @@ export default function MessageItem({ isMyMessage, message, profilePict, handleC
     
     const imgSrc = imgServer + profilePict;
 
-    return (<div key={message.id} className={`message ${isMyMessage ? "sent" : "received"}`}>
+    return (<div className={`message ${isMyMessage ? "sent" : "received"}`}>
         {!isMyMessage && <img
             id="correct-img"
             src={editMsg}
