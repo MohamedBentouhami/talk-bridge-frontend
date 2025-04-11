@@ -8,7 +8,7 @@ import signup from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/loader";
 import storeUserToken from "../../utils/handle-local-storage/handle-local-storage";
-import adaptData from "../../utils/common/tools";
+import { adaptData } from "../../utils/common/tools";
 
 export default function RegisterCard() {
     const { t } = useTranslation();

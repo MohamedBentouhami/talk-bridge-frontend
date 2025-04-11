@@ -1,7 +1,7 @@
 import "./loader.css"
-function Loader() {
+function Loader({color = "white"}) {
 
-    return (<div className="loader"><div></div><div></div><div></div><div></div></div>)
+    return (<div className="loader" style={{color: color}}><div></div><div></div><div></div><div></div></div>)
 }
 
 export default Loader;

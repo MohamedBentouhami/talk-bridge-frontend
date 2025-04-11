@@ -1,0 +1,56 @@
+.buttons-containers {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-top: 3em;
+}
+
+.btn-filter {
+    padding: 10px 18px;
+    border: 2px solid var(--main-color);
+    background-color: transparent;
+    color: var(--main-color);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btn-filter.filter-active {
+    background-color: var(--secondary-bg-color);
+    color: var(--main-bg-color);
+    border-color: var(--secondary-bg-color);
+}
+
+.btn-filter:hover {
+    background-color: var(--secondary-bg-color);
+    color: var(--main-bg-color);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .buttons-containers {
+        flex-direction: column;
+    }
+
+    .btn-filter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.items-containers {}
+
+
+.partner-ul {
+    padding: 0;
+    margin: 2em 0;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}

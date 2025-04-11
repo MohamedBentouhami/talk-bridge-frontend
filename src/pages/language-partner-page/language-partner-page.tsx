@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { partnersFetch } from "../../store/friends/friend.action";
 import { useEffect } from "react";
+import MultiFilterPartners from "../../components/multi-filter-partners/multi-filter-partners";
 
 export default function PartnerPage() {
     const { t } = useTranslation();
@@ -22,7 +23,8 @@ export default function PartnerPage() {
         {isLoadingPartners ?
             <Loader /> :
             (partners != undefined && partners!.length > 0) ?
-                <NewPartnerList newPartners={partners || []}></NewPartnerList>
+                // <NewPartnerList newPartners={partners || []}></NewPartnerList>
+                <MultiFilterPartners partners={partners}></MultiFilterPartners>
                 : errorPartner ? (
                     <p>{errorPartner}</p>
                 ) : (

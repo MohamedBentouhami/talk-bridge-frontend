@@ -5,8 +5,8 @@ import { initReactI18next } from 'react-i18next';
 i18n.use(i18NextHttpBackend)
     .use(initReactI18next)
     .init({
-        lng: 'EN',
-        fallbackLng: 'EN',
+        lng: 'en',
+        fallbackLng: 'en',
         backend: {
             loadPath: 'http://localhost:5173/lang/{{lng}}.json'
         }

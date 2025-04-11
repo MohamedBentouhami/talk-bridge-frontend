@@ -1,0 +1,78 @@
+.pronunciation-container {
+    background-color: #f9f8fc;
+    border: 1px solid #e2d8f2;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(82, 61, 104, 0.1);
+    font-family: "Segoe UI", sans-serif;
+
+
+    .title {
+        color: #523d68;
+        margin-bottom: 16px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .play-button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-radius: 15px;
+            padding: 1em;
+            color: #523d68;
+            &:hover{
+                background-color: var(--main-bg-color);
+                color: snow;
+            }
+        }
+
+    }
+    select {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        background-color: #f9f8fc;
+        color: #523d68;
+        outline: none;
+        margin-bottom: 16px;
+    }
+    
+    select:focus {
+        border-color: #a8a2c1;
+        box-shadow: 0 0 5px rgba(82, 61, 104, 0.2);
+    }
+    
+    option {
+        padding: 10px;
+        background-color: #f9f8fc;
+        color: #523d68;
+    }
+    
+    option:hover {
+        background-color: var(--main-bg-color);
+        color: snow;
+    }
+}
+
+.input-area {
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    margin-bottom: 16px;
+}

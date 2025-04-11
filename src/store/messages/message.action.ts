@@ -22,4 +22,5 @@ export const correctMessage = createAction("message/add-correction", (messageId:
         payload: { messageId, correctedMsg, friendId }
     }
 })
+ export const deleteAllMessages = createAction("message/deleteAll");
 

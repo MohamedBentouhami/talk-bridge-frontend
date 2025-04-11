@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { Message } from "../../@types/message";
-import { addMessage, correctMessage, messagesFetch } from "./message.action";
+import { addMessage, correctMessage, deleteAllMessages, messagesFetch } from "./message.action";
 
 type MessageState = {
     isLoading: boolean;
@@ -46,6 +46,9 @@ const messageReducer = createReducer(initialState, (builder) => {
                 msg.correctionProvided = correctedMsg;
             }
 
+        })
+        .addCase(deleteAllMessages, (state)=>{
+            state.messagesByUser = {};
         })
 
 

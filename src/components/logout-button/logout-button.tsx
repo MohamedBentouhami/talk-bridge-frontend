@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { deleteAll } from "../../store/friends/friend.action";
 import "./logout-button.css"
+import { deleteAllMessages } from "../../store/messages/message.action";
 
 export default function LogoutButton() {
     const { t } = useTranslation();
@@ -17,6 +18,7 @@ export default function LogoutButton() {
 
         setTimeout(() => {
             dispatch(deleteAll());
+            dispatch(deleteAllMessages())
         }, 100);
     }
     return <button className="logout-btn" onClick={handleLogout}>

@@ -3,6 +3,7 @@ import { LANGUAGES_APP } from "../../constants/lang.constant";
 import ReactFlagsSelect from "react-flags-select";
 import { useState } from "react";
 import "./lang-select.css"
+import { normalizeLangCode } from "../../utils/common/tools";
 
 export default function LangSelect() {
     const { i18n } = useTranslation();
@@ -10,9 +11,11 @@ export default function LangSelect() {
 
     const handleChangeLang = (code: string) => {
         setSelected(code)
-        console.log(code)
+        code = normalizeLangCode(code);
         i18n.changeLanguage(code);
     }
+
+
 
     return <div>
         <ReactFlagsSelect
