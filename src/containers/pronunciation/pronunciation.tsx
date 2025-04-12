@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getPronunciation } from "../../services/pronounication.service";
+import { getPronunciation } from "../../services/languagesTools.service";
 import { AudioLines, Play, Trash2 } from "lucide-react";
 import Loader from "../../components/loader/loader";
 import "./pronunciation.css"
