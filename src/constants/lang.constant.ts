@@ -38,7 +38,6 @@ export const languages : LanguageLabels = {
   pt: { en: "Portuguese", fr: "Portugais" },
   ru: { en: "Russian", fr: "Russe" },
   zh: { en: "Chinese", fr: "Chinois" },
-  ja: { en: "Japanese", fr: "Japonais" },
   ar: { en: "Arabic", fr: "Arabe" },
 };
 

@@ -36,6 +36,6 @@
 
 
 .img-btn:hover {
-    background-color: snow;
+    opacity: 0.7;
     color: white;
 }

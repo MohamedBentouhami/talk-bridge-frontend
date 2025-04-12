@@ -1,7 +1,7 @@
 .friends-sidebar {
     background-color: var(--secondary-bg-color);
     width: 255px;
-    height: 91vh;
+    height: 89.1vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -32,6 +32,8 @@
     border-radius: 10px;
     transition: background-color 0.1s ease;
     width: 100%;
+    color: #111;
+    font-weight: 600;
 }
 
 .friend-item:hover {
@@ -54,6 +56,11 @@
     color: snow;
 }
 
-.selected{
+.selected {
     background-color: #2a2a48;
+
+
+    p {
+        font-weight: 600;
+    }
 }

@@ -1,9 +1,11 @@
 import LangSelect from "../../components/lang-select/lang-select";
+import TalkBridge from "/src/assets/TalkBridge.png"
 import "./app-header.css"
 
 export default function AppHeader() {
     return <header className="app-header">
-        <h1>Talk Bridge</h1>
+                <img src={TalkBridge}></img>
+
         <LangSelect></LangSelect>
     </header>
 }

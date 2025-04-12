@@ -4,6 +4,11 @@
     width: 12em;
     button{
         border: none;
+        span{
+            color: var(--secondary-bg-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
     }
     ul{
         li{

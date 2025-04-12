@@ -15,3 +15,9 @@ export async function getPronunciation(content: string, code: string) {
     })
     return response.data.ai_reading;
 }
+
+export async function getTranslation(content: string, lg: string, target: string): Promise<string | undefined> {
+    const baseURL = import.meta.env.VITE_API_URL;
+    const response = await axios.post(baseURL + "tools/translate", { content, langpair: `${lg}|${target}` })
+    return response.data;
+}

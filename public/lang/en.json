@@ -46,5 +46,9 @@
         "title": "Find language partners",
         "addPartner": "Add Partner",
         "requestSent": "Pending Approval"
+    },
+    "profile":{
+        "ignore" : "Ignore",
+        "accept" : "Accept"
     }
 }

@@ -46,5 +46,9 @@
         "title": "Trouvez des partenaires linguistiques",
         "addPartner": "Ajouter un partenaire",
         "requestSent": "En attente d'approbation"
+    },
+    "profile": {
+        "ignore": "Ignorer",
+        "accept": "Accepter"
     }
 }

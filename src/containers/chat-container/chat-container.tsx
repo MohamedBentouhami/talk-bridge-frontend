@@ -8,10 +8,11 @@ import MessageList from "../../components/message-list/message-list";
 
 type ChatContainerProps = {
     friendId: string,
-    profilePict: string
+    profilePict: string,
+    firstName: string
 }
 
-export default function ChatContainer({ friendId, profilePict }: ChatContainerProps) {
+export default function ChatContainer({ friendId, profilePict , firstName}: ChatContainerProps) {
     const dispatch = useDispatch<AppDispatch>();
     const { messagesByUser, error, isLoading } = useSelector((state: RootState) => state.message);
     const messages = messagesByUser?.[friendId];
@@ -29,7 +30,7 @@ export default function ChatContainer({ friendId, profilePict }: ChatContainerPr
 
         {
             isLoading ? <Loader></Loader> : (messages != undefined) ? (
-                <MessageList messages={messages} friendId={friendId} profilePict={profilePict}></MessageList>
+                <MessageList messages={messages} friendId={friendId} profilePict={profilePict} firstName={firstName}></MessageList>
             ) : (
                 <p>{error}</p>
             )

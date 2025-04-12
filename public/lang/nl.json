@@ -1,51 +1,54 @@
 {
-    "app": {
-      "title": "Taalapplicatie"
-    },
-    "menu": {
-      "home": "Startpagina",
-      "chats": "Gesprekken",
-      "connect": "Verbinden",
-      "voiceroom": "Spraakruimte",
-      "tools": "Hulpmiddelen",
-      "profile": "Profiel",
-      "logout": "Afmelden"
-    },
-    "login": {
-      "email": "E-mailadres",
-      "password": "Wachtwoord",
-      "no-account": "Heb je nog geen account?",
-      "register": "Registreren",
-      "btn-login": "Aanmelden"
-    },
-    "register": {
-      "title": "Maak een account aan",
-      "firstName": "Voornaam",
-      "lastName": "Achternaam",
-      "birthday": "Geboortedatum",
-      "nativeLanguage": "Moedertaal",
-      "targetLanguage": "Doeltaal",
-      "email": "E-mail",
-      "password": "Wachtwoord",
-      "confirmPassword": "Bevestig wachtwoord",
-      "next": "Volgende",
-      "back": "Terug",
-      "button": "Registreren"
-    },
-    "home": {
-      "title": "Welkom bij Talk Bridge - Verbind, Leer en Groei! 🌍✨",
-      "intro": "Word lid van een wereldwijde community waar taalleerders en moedertaalsprekers elkaar helpen via echte gesprekken. Begin vandaag nog aan je avontuur!",
-      "get-start": "BEGINNEN",
-      "have-account": "IK HEB AL EEN ACCOUNT"
-    },
-    "chats": {
-      "sidebar-title": "Vrienden",
-      "noChatMessage": "Selecteer een gesprek in de zijbalk om te beginnen chatten"
-    },
-    "connect": {
-      "title": "Vind taalpartners",
-      "addPartner": "Partner toevoegen",
-      "requestSent": "In afwachting van goedkeuring"
-    }
+  "app": {
+    "title": "Taalapplicatie"
+  },
+  "menu": {
+    "home": "Startpagina",
+    "chats": "Gesprekken",
+    "connect": "Verbinden",
+    "voiceroom": "Spraakruimte",
+    "tools": "Hulpmiddelen",
+    "profile": "Profiel",
+    "logout": "Afmelden"
+  },
+  "login": {
+    "email": "E-mailadres",
+    "password": "Wachtwoord",
+    "no-account": "Heb je nog geen account?",
+    "register": "Registreren",
+    "btn-login": "Aanmelden"
+  },
+  "register": {
+    "title": "Maak een account aan",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "birthday": "Geboortedatum",
+    "nativeLanguage": "Moedertaal",
+    "targetLanguage": "Doeltaal",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "next": "Volgende",
+    "back": "Terug",
+    "button": "Registreren"
+  },
+  "home": {
+    "title": "Welkom bij Talk Bridge - Verbind, Leer en Groei! 🌍✨",
+    "intro": "Word lid van een wereldwijde community waar taalleerders en moedertaalsprekers elkaar helpen via echte gesprekken. Begin vandaag nog aan je avontuur!",
+    "get-start": "BEGINNEN",
+    "have-account": "IK HEB AL EEN ACCOUNT"
+  },
+  "chats": {
+    "sidebar-title": "Vrienden",
+    "noChatMessage": "Selecteer een gesprek in de zijbalk om te beginnen chatten"
+  },
+  "connect": {
+    "title": "Vind taalpartners",
+    "addPartner": "Partner toevoegen",
+    "requestSent": "In afwachting van goedkeuring"
+  },
+  "profile": {
+    "ignore": "Negeren",
+    "accept": "Accepteren"
   }
-  
+}

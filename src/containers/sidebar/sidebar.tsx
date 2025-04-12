@@ -6,21 +6,22 @@ import './sidebar.css';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function FriendsList({ selectedUser, onSelectFriend, onSelectProfile }: any) {
+export default function FriendsList({ selectedUser, onSelectFriend, onSelectProfile, onSelectFirstName }: any) {
     const dispatch = useDispatch<AppDispatch>();
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
     const { isLoadingFriend, friends, errorFriend, hasFetchedFriends } = useSelector((state: RootState) => state.friend);
 
     useEffect(() => {
-        if(!hasFetchedFriends){
+        if (!hasFetchedFriends) {
             dispatch(friendsFetch());
         }
     }, [hasFetchedFriends]);
 
-    const handleFriendSelection = (friendId: string, friendProfilePict: string) => {
+    const handleFriendSelection = (friendId: string, friendProfilePict: string, friendFirstName: string) => {
         onSelectFriend(friendId)
         onSelectProfile(friendProfilePict)
+        onSelectFirstName(friendFirstName)
     }
 
     return (
@@ -32,7 +33,7 @@ export default function FriendsList({ selectedUser, onSelectFriend, onSelectProf
                     <h3 className="sidebar-title">{t('chats.sidebar-title')}</h3>
                     <ul className="friends-list">
                         {friends!.map(friend => (
-                            <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id, friend.profilePict)}>
+                            <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id, friend.profilePict, friend.firstName)}>
                                 <img
                                     className="friend-image"
                                     src={`${imgServer}${friend.profilePict}`}

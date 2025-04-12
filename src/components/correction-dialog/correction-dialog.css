@@ -21,6 +21,7 @@
     transform: translate(-50%, -50%);
     border-radius: 6px;
     padding: 25px;
+    min-width: 40em;
     box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
         0px 10px 20px -15px rgba(22, 23, 24, 0.2);
     z-index: 1000;
@@ -135,9 +136,15 @@
     font-size: 15px;
     line-height: 1;
     color: var(--main-color);
-    box-shadow: 0 0 0 1px #8b5cf6;
-    height: 35px;
+    box-shadow: 0 0 0 1px snow;
+    height: 50px;
+    
 }
+.Input::selection{
+    background-color: rgb(47, 35, 35); 
+    box-shadow: 0 0 0 1px snow;
+}
+
 
 @keyframes overlayShow {
     from {

@@ -56,31 +56,34 @@ export default function RegisterCard() {
 
     return (
         <>
-            <form className="register-form">
-                <h1>{t('register.title')}</h1>
-                {step === 1 && <PersonalInfo formData={formData} handleChange={handleChange} handleFileChange={handleFileChange} />}
-                {step === 2 && <LanguageInfo formData={formData} handleChange={handleChange} />}
-                {step === 3 && <AccountInfo formData={formData} handleChange={handleChange} />}
-            </form>
-            {isLoading ? <Loader /> :
-                <div className="form-navigation">
-                    {step > 1 && (
-                        <button type="button" className="back-btn" onClick={prevStep}>
-                            {t('register.back')}
-                        </button>
-                    )}
-                    {step < 3 && (
-                        <button type="button" className="next-btn" onClick={nextStep}>
-                            {t('register.next')}
-                        </button>
-                    )}
-                    {step === 3 && (
-                        <button type="submit" className="register-btn" onClick={handleRegisterForm}>
-                            {t('register.button')}
-                        </button>
-                    )}
-                </div>
-            }
+            <div className="register-card">
+
+                <form className="register-form">
+                    <h1>{t('register.title')}</h1>
+                    {step === 1 && <PersonalInfo formData={formData} handleChange={handleChange} handleFileChange={handleFileChange} />}
+                    {step === 2 && <LanguageInfo formData={formData} handleChange={handleChange} />}
+                    {step === 3 && <AccountInfo formData={formData} handleChange={handleChange} />}
+                </form>
+                {isLoading ? <Loader /> :
+                    <div className="form-navigation">
+                        {step > 1 && (
+                            <button type="button" className="back-btn" onClick={prevStep}>
+                                {t('register.back')}
+                            </button>
+                        )}
+                        {step < 3 && (
+                            <button type="button" className="next-btn" onClick={nextStep}>
+                                {t('register.next')}
+                            </button>
+                        )}
+                        {step === 3 && (
+                            <button type="submit" className="register-btn" onClick={handleRegisterForm}>
+                                {t('register.button')}
+                            </button>
+                        )}
+                    </div>
+                }
+            </div>
         </>
     );
 }

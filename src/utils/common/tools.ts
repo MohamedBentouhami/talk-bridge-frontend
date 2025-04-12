@@ -43,10 +43,10 @@ export default function getFiltersLanguages() {
     return filters;
 }
 export const pronunciationLanguages = new Map([
-    ["Arabic", 2],
+    ["English", 15],
     ["French", 28],
     ["Dutch", 11],
-    ["English", 15],
+    ["Arabic", 2],
     ["German", 30],
     ["Italian", 41],
     ["Portuguese", 56],
