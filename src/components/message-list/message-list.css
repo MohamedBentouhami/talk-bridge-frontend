@@ -151,3 +151,9 @@
     border-right: 4px solid #9e58d2;
     margin-right: 20px;
 }
+
+.first-name-friend {
+    font-size: '1.5rem';
+    color: aliceblue;
+    font-weight: bold;
+}

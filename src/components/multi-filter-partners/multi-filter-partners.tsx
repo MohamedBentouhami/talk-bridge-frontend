@@ -15,22 +15,19 @@ export default function MultiFilterPartners({ partners }: multiFilterProps) {
     const handleFilterClick = (code: string) => {
         setSelectedFilter(code)
     }
-    console.log(filters)
     useEffect(() => {
         filterByLg();
     }, [selectedFilter, partners]);
 
 
     const filterByLg = () => {
-        if (filterPartners.length === 0) return
+        if (partners.length === 0) return
         if (selectedFilter === "all") {
             setFilterPartners([...partners])
             return;
         }
         const tmpPartners = partners.filter(partner => partner.nativeLanguage === selectedFilter);
         setFilterPartners(tmpPartners);
-
-
     }
 
     return <div>
