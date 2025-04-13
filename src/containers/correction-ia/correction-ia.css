@@ -1,0 +1,114 @@
+.correction-ia {
+
+    background-color: #f9f8fc;
+    border: 1px solid #e2d8f2;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 50%;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(82, 61, 104, 0.1);
+    font-family: "Segoe UI", sans-serif;
+
+
+    .title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color: #523d68;
+    }
+
+    p {
+        color: black;
+    }
+
+    select {
+        width: 100%;
+        padding: 12px;
+        padding-right: 5em;
+        font-size: 16px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        background-color: #f9f8fc;
+        color: #523d68;
+        outline: none;
+        margin-bottom: 16px;
+    }
+
+    select:focus {
+        border-color: #a8a2c1;
+        box-shadow: 0 0 5px rgba(82, 61, 104, 0.2);
+    }
+
+    option {
+        padding: 10px;
+        background-color: #f9f8fc;
+        color: #523d68;
+    }
+
+    option:hover {
+        background-color: var(--main-bg-color);
+        color: snow;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 15em;
+        margin-right: 15em;
+
+        .btn-action {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-radius: 15px;
+            padding: 1em;
+            background-color: #523d68;
+            color: white;
+            
+            &:hover {
+                background-color: var(--main-bg-color);
+                color: snow;
+            }
+            &:disabled {
+              background-color: #ccc;
+              color: #888;
+              cursor: not-allowed;
+              pointer-events: none;
+            }
+        }
+
+    }
+}
+
+.input-area {
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+
+
+.output-section {
+    background-color: white;
+    border: 1px solid #d8d4e2;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgba(82, 61, 104, 0.08);
+}
+
+.output-section h4 {
+    color: #523d68;
+    margin-bottom: 10px;
+}
+
+.output-text {
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}

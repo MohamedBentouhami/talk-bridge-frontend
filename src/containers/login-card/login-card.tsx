@@ -45,7 +45,10 @@ export default function LoginCard() {
             </label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
-        {isLoading ? <Loader /> : <button onClick={handleLogin}>{t('login.login')}</button>}
+        {isLoading ? <div className="div-loader">
+            <Loader />
+        </div>
+            : <button onClick={handleLogin}>{t('login.login')}</button>}
 
         <p className="register-link">
             {t('login.no-account')}

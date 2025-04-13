@@ -39,6 +39,7 @@
         "have-account": "J'AI DÉJÀ UN COMPTE"
     },
     "chats": {
+        "greeting": "Salut👋, {{firstName}} {{lastName}} !",
         "sidebar-title": "Amis",
         "noChatMessage": "Sélectionnez une conversation dans la barre de chat pour commencer à discuter"
     },

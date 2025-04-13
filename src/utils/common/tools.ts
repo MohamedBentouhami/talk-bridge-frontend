@@ -54,3 +54,4 @@ export const pronunciationLanguages = new Map([
     ["Spanish", 66],
     ["Japanese", 78]
 ]);
+

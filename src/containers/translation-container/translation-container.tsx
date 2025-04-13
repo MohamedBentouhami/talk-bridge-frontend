@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { pronunciationLanguages } from "../../utils/common/tools";
 import "./translation-container.css";
-import { getTranslation } from "../../services/languagesTools.service";
+import { getTranslation } from "../../services/languages-tools.service";
 
 export default function TranslationContainer() {
     const [text, setText] = useState("");

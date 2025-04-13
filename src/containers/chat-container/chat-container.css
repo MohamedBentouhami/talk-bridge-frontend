@@ -1,11 +1,14 @@
 .no-chat-container {
     display: flex;
-    height: 80%;
+    height: 60%;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin-right: 5em;
 }
 
 .no-chat-text {
+    margin-top: 2em;
     color: #6b7280; 
     font-size: 1.125rem;
 }

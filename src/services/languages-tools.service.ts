@@ -21,3 +21,21 @@ export async function getTranslation(content: string, lg: string, target: string
     const response = await axios.post(baseURL + "tools/translate", { content, langpair: `${lg}|${target}` })
     return response.data;
 }
+
+export async function rephraseText(text: string, lg: string) {
+    const baseURL = import.meta.env.VITE_API_URL;
+    const response = await axios.post(`${baseURL}tools/rephrase`, {
+        text, lg
+    })
+
+    return response.data;
+}
+
+export async function correctText(text: string, lg: string){
+    const baseURL = import.meta.env.VITE_API_URL;
+    const response = await axios.post(`${baseURL}tools/correction`, {
+        text, lg
+    })
+
+    return response.data;
+}

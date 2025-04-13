@@ -1,5 +1,5 @@
 import LangSelect from "../../components/lang-select/lang-select";
-import TalkBridge from "/src/assets/TalkBridge.png"
+import TalkBridge from "/src/assets/talk-bridge.png"
 import "./app-header.css"
 
 export default function AppHeader() {

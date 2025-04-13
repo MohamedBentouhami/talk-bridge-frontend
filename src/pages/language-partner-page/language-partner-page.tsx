@@ -1,11 +1,11 @@
 import Loader from "../../components/loader/loader";
-import NewPartnerList from "../../containers/new-partner-list/new-partner-list";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { partnersFetch } from "../../store/friends/friend.action";
 import { useEffect } from "react";
 import MultiFilterPartners from "../../components/multi-filter-partners/multi-filter-partners";
+import "./language-partner-page.css"
 
 export default function PartnerPage() {
     const { t } = useTranslation();
@@ -19,11 +19,10 @@ export default function PartnerPage() {
     }, [hasFetchedPartners]);
     if (errorPartner) return <div>Error loading partners...</div>;
     return <div>
-        <h1>{t('connect.title')}</h1>
+        <h2 id="connect-sub-title">{t('connect.title')}</h2>
         {isLoadingPartners ?
             <Loader /> :
             (partners != undefined && partners!.length > 0) ?
-                // <NewPartnerList newPartners={partners || []}></NewPartnerList>
                 <MultiFilterPartners partners={partners}></MultiFilterPartners>
                 : errorPartner ? (
                     <p>{errorPartner}</p>

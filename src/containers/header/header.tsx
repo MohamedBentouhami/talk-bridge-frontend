@@ -1,5 +1,5 @@
 import NavBar from "../../components/nav-bar/nav-bar";
-import TalkBridge from "/src/assets/TalkBridge.png"
+import TalkBridge from "/src/assets/talk-bridge.png"
 import "./header.css"
 
 export default function Header() {
