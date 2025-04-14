@@ -4,7 +4,7 @@ import "./app-header.css"
 
 export default function AppHeader() {
     return <header className="app-header">
-                <img src={TalkBridge}></img>
+        <img src={TalkBridge}></img>
 
         <LangSelect></LangSelect>
     </header>

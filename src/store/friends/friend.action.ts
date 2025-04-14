@@ -13,9 +13,9 @@ export const friendsFetch = createAsyncThunk(
 );
 export const partnersFetch = createAsyncThunk(
     'partner/fetch',
-    async (lg: string) => {
+    async () => {
         try {
-            const response = await fetchNewPartners(lg);
+            const response = await fetchNewPartners();
             return response;
         } catch (error) {
             throw error;

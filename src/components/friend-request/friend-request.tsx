@@ -18,7 +18,7 @@ export default function FriendRequests() {
 
 
     return <div>
-        <h3>Friends request</h3>
+        {/* <h3>Friends request</h3> */}
         {isLoadingRequester ? <Loader></Loader> : (requesters !== undefined && requesters!.length > 0) ?
             (<ul className="requester-list">
                 {requesters!.map

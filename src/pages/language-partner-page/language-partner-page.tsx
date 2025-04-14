@@ -10,11 +10,10 @@ import "./language-partner-page.css"
 export default function PartnerPage() {
     const { t } = useTranslation();
     const dispatch = useDispatch<AppDispatch>();
-    const lg: string = localStorage.getItem("learning_language") ?? "en";
     const { isLoadingPartners, partners, errorPartner, hasFetchedPartners } = useSelector((state: RootState) => state.friend);
     useEffect(() => {
         if (!hasFetchedPartners) {
-            dispatch(partnersFetch(lg));
+            dispatch(partnersFetch());
         }
     }, [hasFetchedPartners]);
     if (errorPartner) return <div>Error loading partners...</div>;

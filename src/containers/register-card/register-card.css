@@ -106,3 +106,7 @@
 .form-navigation .register-btn:hover {
     transform: scale(1.05);
 }
+
+.loader-div{
+    text-align: center;
+}

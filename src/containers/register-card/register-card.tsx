@@ -64,7 +64,7 @@ export default function RegisterCard() {
                     {step === 2 && <LanguageInfo formData={formData} handleChange={handleChange} />}
                     {step === 3 && <AccountInfo formData={formData} handleChange={handleChange} />}
                 </form>
-                {isLoading ? <Loader /> :
+                {isLoading ? <div className="loader-div"><Loader /> </div>:
                     <div className="form-navigation">
                         {step > 1 && (
                             <button type="button" className="back-btn" onClick={prevStep}>

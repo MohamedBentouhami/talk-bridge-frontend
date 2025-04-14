@@ -31,8 +31,9 @@ export default function getFiltersLanguages() {
     const lg = i18n.language;
     const langTab = languages;
     const filters = [];
-
+    
     filters.push({ name: "All", code: "all" })
+    filters.push({ name: langTab[targetLg]?.[lg] ?? targetLg, code: targetLg });
 
     for (const [key, value] of Object.entries(langTab)) {
         if (key !== targetLg && value[lg]) {

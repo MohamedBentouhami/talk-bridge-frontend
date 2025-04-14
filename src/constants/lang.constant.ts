@@ -10,6 +10,17 @@ export const LANGUAGES_SPOKEN = {
   RU: "Русский",
   SA: "العربية"
 };
+export const LANGUAGES_LABELS = {
+   "English" : "EN",
+   "Français" : "FR",
+   "Español" : "ES",
+   "Deutsch" : "DE",
+   "Italiano" : "IT",
+   "Nederlands" : "NL",
+   "Português" : "PT",
+   "Русский" : "RU",
+   "العربية" : "AR"
+};
 
 export const COUNTRIES = [
   "GB",

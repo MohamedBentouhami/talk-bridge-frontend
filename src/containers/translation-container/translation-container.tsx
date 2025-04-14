@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { pronunciationLanguages } from "../../utils/common/tools";
 import "./translation-container.css";
 import { getTranslation } from "../../services/languages-tools.service";
+import { LANGUAGES_LABELS } from "../../constants/lang.constant";
 
 export default function TranslationContainer() {
     const [text, setText] = useState("");
     const [textTranslated, setTextTranslated] = useState("");
 
-    const handleTranslation = async() => {
-        console.log(text);
-        const result = await getTranslation(text, "fr", "en")
+    const [lg, setLg] = useState("EN");
+    const [lgToTranslate, setLgToTranslate] = useState("EN");
+
+    const handleTranslation = async () => {
+        const result = await getTranslation(text, lg, lgToTranslate)
         setTextTranslated(result ?? "No translation");
 
     }
@@ -20,15 +22,15 @@ export default function TranslationContainer() {
             <div className="translation-inputs">
                 <div className="input-block">
                     <label htmlFor="source-lang">From</label>
-                    <select id="source-lang" className="language-select" onChange={() => { }}>
-                        {Array.from(pronunciationLanguages).map(([label, value]) => (
+                    <select id="source-lang" className="language-select" value={lg} onChange={(e) => setLg(e.target.value)}>
+                        {Object.entries(LANGUAGES_LABELS).map(([label, value]) => (
                             <option key={value} value={value}>
                                 {label}
                             </option>
                         ))}
                     </select>
                     <textarea className="text-area" placeholder="Enter text..." value={text} onChange={(e) => {
-                        if(textTranslated !== "") setTextTranslated("")
+                        if (textTranslated !== "") setTextTranslated("")
                         setText(e.target.value)
 
                     }}
@@ -37,8 +39,9 @@ export default function TranslationContainer() {
 
                 <div className="input-block">
                     <label htmlFor="target-lang">To</label>
-                    <select id="target-lang" className="language-select" onChange={() => { }}>
-                        {Array.from(pronunciationLanguages).map(([label, value]) => (
+                    <select id="target-lang" className="language-select" value={lgToTranslate}
+                        onChange={(e) => setLgToTranslate(e.target.value)}>
+                        {Object.entries(LANGUAGES_LABELS).map(([label, value]) => (
                             <option key={value} value={value}>
                                 {label}
                             </option>
