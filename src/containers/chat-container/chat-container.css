@@ -1,15 +1,34 @@
 .no-chat-container {
     display: flex;
-    height: 60%;
+    height: 60vh;
     align-items: center;
     justify-content: center;
+    gap: 2em;
     flex-direction: column;
-    margin-right: 5em;
+    padding: 2em;
+    text-align: center;
+    margin-right: 2em;
+}
+
+.no-chat-header {
+    padding: 2em;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.no-chat-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-bg-color);
+    margin-bottom: 0.5em;
 }
 
 .no-chat-text {
-    margin-top: 2em;
-    color: #6b7280; 
+    margin-top: 1em;
+    color: #64748b;
     font-size: 1.125rem;
+    line-height: 1.6;
 }
+
+
 

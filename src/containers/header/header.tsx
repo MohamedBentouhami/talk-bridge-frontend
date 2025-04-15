@@ -1,11 +1,8 @@
 import NavBar from "../../components/nav-bar/nav-bar";
-import TalkBridge from "/src/assets/talk-bridge.png"
 import "./header.css"
 
 export default function Header() {
-    return <header className={"header"}>
-        <img src={TalkBridge}></img>
+    return (<header className={"header"}>
         <NavBar />
-
-    </header>
+    </header>)
 }

@@ -6,7 +6,9 @@ import './sidebar.css';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function FriendsList({ selectedUser, onSelectFriend, onSelectProfile, onSelectFirstName }: any) {
+import requestImg from "../../assets/friends.png"
+
+export default function FriendsList({ selectedUser, onSelectFriend, onSelectProfile, onSelectFirstName, setViewMode }: any) {
     const dispatch = useDispatch<AppDispatch>();
     const { t } = useTranslation();
     const imgServer = import.meta.env.VITE_SERVER_IMAGES;
@@ -22,34 +24,41 @@ export default function FriendsList({ selectedUser, onSelectFriend, onSelectProf
         onSelectFriend(friendId)
         onSelectProfile(friendProfilePict)
         onSelectFirstName(friendFirstName)
+        setViewMode("chat");
     }
 
     return (
         <div className="friends-sidebar">
-            {isLoadingFriend ? (
-                <Loader />
-            ) : (friends != undefined && friends!.length > 0) ? (
-                <div>
-                    <h3 className="sidebar-title">{t('chats.sidebar-title')}</h3>
-                    <ul className="friends-list">
-                        {friends!.map(friend => (
-                            <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id, friend.profilePict, friend.firstName)}>
-                                <img
-                                    className="friend-image"
-                                    src={`${imgServer}${friend.profilePict}`}
-                                    alt={`${friend.firstName} ${friend.lastName}`}
-                                />
-                                <p className="friend-name">{friend.firstName} {friend.lastName}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ) : errorFriend ? (
-                <p>{errorFriend}</p>
-            ) : (
-                <p>No friends found.</p>
-            )}
-        </div>
+            <div>
+                <h3 className="sidebar-title">{t('chats.sidebar-title')}</h3>
+                <button className='request-button' onClick={() => setViewMode("requests")} >
+                    <img src={requestImg}></img>
+                    Requests</button>
+                {isLoadingFriend ? (
+                    <Loader />
+                ) : (friends != undefined && friends!.length > 0) ? (
+                    <>
+
+                        <ul className="friends-list">
+                            {friends!.map(friend => (
+                                <li key={friend.id} className={`friend-item ${selectedUser === friend.id && 'selected'} `} onClick={() => handleFriendSelection(friend.id, friend.profilePict, friend.firstName)}>
+                                    <img
+                                        className="friend-image"
+                                        src={`${imgServer}${friend.profilePict}`}
+                                        alt={`${friend.firstName} ${friend.lastName}`}
+                                    />
+                                    <p className="friend-name">{friend.firstName} {friend.lastName}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                ) : errorFriend ? (
+                    <p>{errorFriend}</p>
+                ) : (
+                    <p>No friends found.</p>
+                )}
+            </div>
+        </div >
     );
 };
 

@@ -4,7 +4,7 @@
     all: unset;
 }
 
-.DialogOverlay {
+.dialog-overlay {
     background-color: rgba(0, 0, 0, 0.75);
     position: fixed;
     inset: 0;
@@ -13,7 +13,7 @@
     backdrop-filter: blur(4px);
 }
 
-.DialogContent {
+.dialog-content {
     background-color: var(--secondary-bg-color);
     position: fixed;
     top: 50%;
@@ -28,11 +28,11 @@
     animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.DialogContent:focus {
+.dialog-content:focus {
     outline: none;
 }
 
-.DialogTitle {
+.dialog-title {
     margin: 2em 0;
     text-align: center;
     font-weight: 500;
@@ -66,10 +66,10 @@
 }
 
 .Input:focus {
-    box-shadow: 0 0 0 2px red;
+    box-shadow: 0 0 0 2px #fff;
     user-select: none;
-    outline: none; /* Ensure outline is not present */
-    -webkit-user-select: none; /* For Webkit browsers */
+    outline: none;
+    -webkit-user-select: none;
 }
 
 .Button:focus:not(:focus-visible) {
@@ -135,13 +135,13 @@
     padding: 0 10px;
     font-size: 15px;
     line-height: 1;
-    color: var(--main-color);
+    color: black;
     box-shadow: 0 0 0 1px snow;
     height: 50px;
     
 }
 .Input::selection{
-    background-color: rgb(47, 35, 35); 
+    background-color: aliceblue; 
     box-shadow: 0 0 0 1px snow;
 }
 

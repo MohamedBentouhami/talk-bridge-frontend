@@ -1,11 +1,13 @@
+import { useEffect, useState } from "react";
 import useSWR, { mutate } from "swr";
+import { ToastContainer, toast } from 'react-toastify';
 import { getUserInfo, updateUser } from "../../services/user.service";
 import Loader from "../../components/loader/loader";
-import "./edit-profile.css";
-import { useEffect, useState } from "react";
-import { LANGUAGES_LABELS } from "../../constants/lang.constant";
 import ImageUpload from "../../components/image-upload/image-upload";
-import { ToastContainer, toast } from 'react-toastify';
+import EditProfileForm from "../../components/edit-profile-form/edit-profile-form";
+import AppSettings from "../../components/app-settings/app-settings";
+
+import "./edit-profile.css";
 
 
 
@@ -14,6 +16,7 @@ export default function EditProfile() {
     const id = localStorage.getItem("id");
     const { data, error, isLoading } = useSWR(`/api/user/${id}`, getUserInfo);
     const [isUpdating, setIsUpdating] = useState(false);
+    const [tab, setSelected] = useState("account");
 
 
     const [form, setForm] = useState({
@@ -53,7 +56,7 @@ export default function EditProfile() {
         setIsUpdating(true);
         try {
             await updateUser(form);
-            mutate(`/api/user/${id}`);
+            await mutate(`/api/user/${id}`);
             toast.success("Profile updated successfully!", {
                 position: "bottom-left",
                 autoClose: 4000,
@@ -84,49 +87,16 @@ export default function EditProfile() {
                 <ImageUpload handleFileChange={handleFileChange} previousPicture={`${imgServer}${data?.profilePict}`} ></ImageUpload>
                 <h3>{data?.firstName} {data?.lastName}</h3>
                 <ul className="sidebar-menu">
-                    <li className="active">Account</li>
-                    <li>Password</li>
-                    <li>Application</li>
+                    <li className={`${tab === "account" && 'active'}`} onClick={() => setSelected("account")}>Account</li>
+                    <li className={`${tab === "app" && 'active'}`} onClick={() => setSelected("app")}>Application</li>
+                    <li className={`${tab === "password" && 'active'}`} onClick={() => setSelected("password")}>Password</li>
                 </ul>
             </div>
 
-            <div className="edit-profile-form">
-                <h2>Account Settings</h2>
+            {tab === "account" && <EditProfileForm form={form} handleChange={handleChange} handleUpdateProfile={handleUpdateProfile}
+                handleCancelProfile={handleCancelProfile} isUpdating={isUpdating}></EditProfileForm>}
 
-                <div className="form-columns">
-                    <div className="form-left">
-                        <label>First Name</label>
-                        <input type="text" name="firstName" value={form.firstName} onChange={handleChange} />
-                        <label>Native Language</label>
-                        <select name="nativeLg" value={form.nativeLg} onChange={handleChange} className="lg-select">
-                            {Object.entries(LANGUAGES_LABELS).map(([label, value]) => (
-                                <option key={value} value={value}>{label}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div className="form-right">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" value={form.lastName} onChange={handleChange} />
-                        <label>Target Language</label>
-                        <select name="targetLg" value={form.targetLg} onChange={handleChange} className="lg-select">
-                            {Object.entries(LANGUAGES_LABELS).map(([label, value]) => (
-                                <option key={value} value={value}>{label}</option>
-                            ))}
-                        </select>
-                    </div>
-                </div>
-
-                <div className="form-group">
-                    <label>Bio</label>
-                    <textarea name="bio" value={form.bio} onChange={handleChange} />
-                </div>
-
-                <div className="form-actions">
-                    <button className="btn-update" onClick={handleUpdateProfile}>Update</button>
-                    <button className="btn-cancel" onClick={handleCancelProfile}>Cancel</button>
-                </div>
-            </div>
+            {tab === "app" &&<AppSettings/>}
         </div>
     );
 }

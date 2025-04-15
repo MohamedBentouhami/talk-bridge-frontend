@@ -3,11 +3,17 @@
     flex-direction: row;
     gap: 20px;
     background: var(--secondary-bg-color);
-    padding: 15px 20px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    padding: 10px 20px 0px 20px;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 
-    box-shadow: 0 4px 12px  rgba(255, 255, 255, 0.2);
+    .menu-bar {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
 
     a {
         display: flex;
@@ -18,8 +24,9 @@
         text-decoration: none;
         font-size: 18px;
         font-weight: 500;
-        padding: 8px 15px;
+        padding: 0px 15px;
         border-radius: 8px;
+        position: relative;
     }
 }
 
@@ -39,12 +46,10 @@
     background: white;
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: 12px;
     transform: scaleX(0);
 }
 
 .nav a:hover::after {
     transform: scaleX(1);
 }
-
-

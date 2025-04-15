@@ -25,9 +25,9 @@ export function DialogDemo({ open, onOpenChange, messageToCorrect }: DialogDemoP
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogPortal>
-                <DialogOverlay className="DialogOverlay" />
-                <DialogContent className="DialogContent">
-                    <DialogTitle className="DialogTitle">Add a message correction</DialogTitle>
+                <DialogOverlay className="dialog-overlay" />
+                <DialogContent className="dialog-content">
+                    <DialogTitle className="dialog-title">Add a message correction</DialogTitle>
                     <DialogDescription hidden></DialogDescription>
                     <fieldset className="Fieldset">
                         <label className="Label" htmlFor="message">

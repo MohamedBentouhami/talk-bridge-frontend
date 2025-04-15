@@ -1,5 +1,4 @@
 import Loader from "../../components/loader/loader";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { partnersFetch } from "../../store/friends/friend.action";
@@ -8,7 +7,6 @@ import MultiFilterPartners from "../../components/multi-filter-partners/multi-fi
 import "./language-partner-page.css"
 
 export default function PartnerPage() {
-    const { t } = useTranslation();
     const dispatch = useDispatch<AppDispatch>();
     const { isLoadingPartners, partners, errorPartner, hasFetchedPartners } = useSelector((state: RootState) => state.friend);
     useEffect(() => {
@@ -18,7 +16,6 @@ export default function PartnerPage() {
     }, [hasFetchedPartners]);
     if (errorPartner) return <div>Error loading partners...</div>;
     return <div>
-        <h2 id="connect-sub-title">{t('connect.title')}</h2>
         {isLoadingPartners ?
             <Loader /> :
             (partners != undefined && partners!.length > 0) ?

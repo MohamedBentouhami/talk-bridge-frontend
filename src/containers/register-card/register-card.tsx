@@ -64,7 +64,7 @@ export default function RegisterCard() {
                     {step === 2 && <LanguageInfo formData={formData} handleChange={handleChange} />}
                     {step === 3 && <AccountInfo formData={formData} handleChange={handleChange} />}
                 </form>
-                {isLoading ? <div className="loader-div"><Loader /> </div>:
+                {isLoading ? <div className="loader-div"><Loader /> </div> :
                     <div className="form-navigation">
                         {step > 1 && (
                             <button type="button" className="back-btn" onClick={prevStep}>
@@ -83,6 +83,11 @@ export default function RegisterCard() {
                         )}
                     </div>
                 }
+            </div>
+            <div className="step-indicator">
+                <div className={`step ${step >= 1 ? "active" : ""}`}>{t("register.step1")}</div>
+                <div className={`step ${step >= 2 ? "active" : ""}`}>{t("register.step2")}</div>
+                <div className={`step ${step >= 3 ? "active" : ""}`}>{t("register.step3")}</div>
             </div>
         </>
     );

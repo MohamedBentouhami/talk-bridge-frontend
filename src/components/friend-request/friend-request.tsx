@@ -17,8 +17,7 @@ export default function FriendRequests() {
     }, [hasFetchedRequester]);
 
 
-    return <div>
-        {/* <h3>Friends request</h3> */}
+    return <div className="friend-requests-container">
         {isLoadingRequester ? <Loader></Loader> : (requesters !== undefined && requesters!.length > 0) ?
             (<ul className="requester-list">
                 {requesters!.map

@@ -47,9 +47,12 @@ export default function WebSocketListener() {
             });
 
             socket.on("new_message", (data) => {
-                console.log("Received Message friend:", data.newMessage);
-                console.log(data.newMessage.senderId);
                 dispatch(addMessage(data.newMessage, data.newMessage.senderId))
+                if (Notification.permission === "granted") {
+                    new Notification("New Message", {
+                        body: `You have a new Message from ${data.newMessage.receiverName}`,
+                    });
+                }
             })
             socket.on("add_correction", (data) => {
                 dispatch(correctMessage(data.updatedMsg.id, data.updatedMsg.correctionProvided, data.updatedMsg.receiverId))

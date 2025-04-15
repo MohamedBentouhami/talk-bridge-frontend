@@ -30,7 +30,13 @@
         "confirmPassword": "Confirm Password",
         "next": "Next",
         "back": "Back",
-        "button": "Register"
+        "button": "Register",
+        "step1": "1",
+        "step2": "2",
+        "step3": "3",
+        "personal": "Personal",
+        "language": "Language",
+        "account": "Account"
     },
     "home": {
         "title": "Welcome to Talk Bridge - Connect, Learn, and Grow! 🌍✨",
@@ -48,8 +54,8 @@
         "addPartner": "Add Partner",
         "requestSent": "Pending Approval"
     },
-    "profile":{
-        "ignore" : "Ignore",
-        "accept" : "Accept"
+    "profile": {
+        "ignore": "Ignore",
+        "accept": "Accept"
     }
 }

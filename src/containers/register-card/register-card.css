@@ -110,3 +110,46 @@
 .loader-div{
     text-align: center;
 }
+
+.step-indicator {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 10px;
+  }
+  
+  .step-indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: #ccc;
+    z-index: 0;
+  }
+  
+  .step {
+    z-index: 1;
+    background-color: #ccc;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+    transition: background-color 0.3s;
+  }
+  
+  .step.active {
+    background-color: var(--secondary-bg-color)
+  }
+  
