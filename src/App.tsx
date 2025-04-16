@@ -8,6 +8,7 @@ import LoginPage from "./pages/login-page/login-page";
 import RegisterPage from "./pages/register-page/register-page";
 import ProtectedRoutes from "./utils/protected-routes/protected_routes";
 import ToolsPage from "./pages/tools-page/tools-page";
+import VocalChannel from "./pages/vocal-channel/vocal-channel";
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
             <Route path="/tools" element={<ToolsPage />}>
             </Route>
             <Route path="/voiceroom" element={<VoiceroomPage />}>
+            </Route>
+            <Route path="/voiceroom/:id" element={<VocalChannel />}>
             </Route>
             <Route path="/profile" element={<ProfilePage />}>
             </Route>

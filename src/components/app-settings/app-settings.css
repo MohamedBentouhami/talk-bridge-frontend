@@ -30,7 +30,7 @@
 
 .toggle-switch {
     position: relative;
-    width: 52px;
+    width: 65px;
     height: 28px;
     background: #e2e8f0;
     border-radius: 14px;
@@ -55,7 +55,7 @@ input:checked + .toggle-switch {
 }
 
 input:checked + .toggle-switch::after {
-    transform: translateX(24px);
+    transform: translateX(37px);
 }
 
 

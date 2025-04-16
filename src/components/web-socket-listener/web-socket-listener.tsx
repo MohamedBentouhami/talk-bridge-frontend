@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { addFriend, addRequester, removePartner, updatePartner } from "../../store/friends/friend.action";
 import { AppDispatch } from "../../store/store";
 import { addMessage, correctMessage } from "../../store/messages/message.action";
+import { addParticipant, addVoiceroom } from "../../store/voicerooms/voiceroom.action";
 
 
 
@@ -56,6 +57,13 @@ export default function WebSocketListener() {
             })
             socket.on("add_correction", (data) => {
                 dispatch(correctMessage(data.updatedMsg.id, data.updatedMsg.correctionProvided, data.updatedMsg.receiverId))
+            })
+            socket.on("new_voiceroom", (data) => {
+                dispatch(addVoiceroom(data.newVoiceroom))
+            })
+            socket.on("join_voiceroom", (data) => {
+                dispatch(addParticipant(data.voiceroomId, data.participant))
+                console.log(data.newVoiceroom)
             })
         })
 

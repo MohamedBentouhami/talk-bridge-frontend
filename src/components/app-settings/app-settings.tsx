@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import LangSelect from "../lang-select/lang-select";
+import ToggleMode from "../toggle-mode/toggle-mode";
 import "./app-settings.css";
 import { useState } from "react";
 
 export default function AppSettings() {
-    const [darkMode, setDarkMode] = useState(false);
+    const {t} = useTranslation();
     const [notifications, setNotifications] = useState(true);
 
     const handleNotificationToggle = () => {
@@ -25,7 +27,7 @@ export default function AppSettings() {
 
 
     return (
-        <div className={`app-settings ${darkMode ? 'dark-mode' : ''}`}>
+        <div className={`app-settings`}>
             <h2>Application Settings</h2>
 
             <div className="setting-toggle">
@@ -49,14 +51,8 @@ export default function AppSettings() {
 
             <div className="setting-toggle">
                 <label>
-                    <span>Dark Mode</span>
-                    <input
-                        type="checkbox"
-                        checked={darkMode}
-                        onChange={() => setDarkMode(!darkMode)}
-                        hidden
-                    />
-                    <span className="toggle-switch"></span>
+                    <span>App Appearance</span>
+                    <ToggleMode></ToggleMode>
                 </label>
             </div>
         </div>

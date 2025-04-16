@@ -1,8 +1,10 @@
-.header{
+.header {
     display: flex;
     flex-direction: row;
-    img{
-        height: 4em;
+
+    img {
+        height: 5em;
     }
+
     margin-bottom: 0.5em;
 }

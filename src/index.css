@@ -10,6 +10,13 @@
     --main-color: snow;
 }
 
+
+[data-theme="light"] {
+    --main-bg-color: white;
+    --secondary-bg-color:#523d68;
+    --main-color: #000;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     color: snow;

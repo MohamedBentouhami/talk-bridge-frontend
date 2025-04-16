@@ -1,10 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { Voiceroom } from "../../@types/voiceroom";
-import { voiceroomsFetch } from "./voiceroom.action";
+import { addParticipant, addVoiceroom, voiceroomsFetch } from "./voiceroom.action";
 
 type VoiceroomState = {
     isLoading: boolean;
-    voicerooms?: Voiceroom;
+    voicerooms?: Voiceroom[];
     errorVoiceroom?: string;
     hasFetchedVoiceroom: boolean;
 }
@@ -29,6 +29,15 @@ const VoiceroomReducer = createReducer(initialState, (builder) => {
         .addCase(voiceroomsFetch.rejected, (state, action) => {
             state.isLoading = false;
             state.errorVoiceroom = action.error.message ?? 'Failed to fetch voicerooms';
+        })
+        .addCase(addVoiceroom, (state, action) => {
+            const newVr = action.payload;
+            state.voicerooms?.unshift(newVr);
+        })
+        .addCase(addParticipant, (state, action) => {
+            const { vrId, participant } = action.payload;
+            const vr = state.voicerooms?.find(vr => vr.id === vrId);
+            vr?.participants.push(participant);
         })
 
 });

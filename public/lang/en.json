@@ -56,6 +56,7 @@
     },
     "profile": {
         "ignore": "Ignore",
-        "accept": "Accept"
+        "accept": "Accept",
+        "app-settings": "Application Settings"
     }
 }

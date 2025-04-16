@@ -1,7 +1,7 @@
 .friends-sidebar {
     background-color: var(--secondary-bg-color);
     width: 255px;
-    height: 85.5vh;
+    height: 82.5vh;
     padding: 20px;
     display: flex;
     flex-direction: column;

@@ -1,0 +1,77 @@
+.vr-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    background-color: #e2dbe3;
+    transition: all 0.2s ease;
+}
+
+.vr-card:hover:not(.vr-non-active) {
+    transform: translateY(-5px);
+}
+
+.vr-card.vr-non-active {
+    opacity: 0.2;
+    background-color: #e2dbe3;
+}
+
+.vr-language-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: var(--secondary-bg-color);
+    color: white;
+}
+
+.vr-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-right: 2.5rem;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.vr-host {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vr-host-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.vr-host-name {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.vr-participants {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.vr-participants::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%236b7280"><path d="M7 8a3 3 0 100-6 3 3 0 000 6zM14.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM1.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 017 18a9.953 9.953 0 01-5.385-1.572zM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 00-1.588-3.755 4.502 4.502 0 015.874 2.636.818.818 0 01-.36.98A7.465 7.465 0 0114.5 16z" /></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}

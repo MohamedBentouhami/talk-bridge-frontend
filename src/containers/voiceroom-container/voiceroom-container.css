@@ -1,0 +1,8 @@
+.vr-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3em auto;    
+    gap: 10px; 
+}
