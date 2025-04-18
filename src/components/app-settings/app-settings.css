@@ -59,3 +59,25 @@ input:checked + .toggle-switch::after {
 }
 
 
+.setting-toggle2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 1rem;
+    margin-bottom: 1em;
+}
+
+.setting-toggle2 label {
+    margin: 0;
+    font-weight: 500;
+    flex: 1;
+}
+
+.setting-toggle2 select,
+.setting-toggle2 .lang-select-wrapper {
+    flex: 1;
+    max-width: 200px;
+}
+

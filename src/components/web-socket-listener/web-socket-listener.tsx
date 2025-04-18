@@ -1,12 +1,11 @@
+// src/components/WebSocketListener.tsx
 import { useDispatch } from "react-redux";
-import { openSocket } from "../../socket";
 import { useEffect } from "react";
 import { addFriend, addRequester, removePartner, updatePartner } from "../../store/friends/friend.action";
 import { AppDispatch } from "../../store/store";
 import { addMessage, correctMessage } from "../../store/messages/message.action";
-import { addParticipant, addVoiceroom } from "../../store/voicerooms/voiceroom.action";
-
-
+import { addParticipant, addVoiceroom, closeVoiceroom, removeParticipant } from "../../store/voicerooms/voiceroom.action";
+import { openSocket } from "../../socket";
 
 export default function WebSocketListener() {
     const userId = localStorage.getItem("id");
@@ -40,8 +39,8 @@ export default function WebSocketListener() {
                 console.log("Received accepted friend:", data.newFriend);
                 dispatch(addFriend(data.newFriend));
                 dispatch(removePartner(data.newFriend.id));
-
             });
+
             socket.on("cancel_friend", (data) => {
                 console.log("Received refused friend:", data.userId);
                 dispatch(updatePartner(data.userId, false));
@@ -54,20 +53,31 @@ export default function WebSocketListener() {
                         body: `You have a new Message from ${data.newMessage.receiverName}`,
                     });
                 }
-            })
+            });
+
             socket.on("add_correction", (data) => {
-                dispatch(correctMessage(data.updatedMsg.id, data.updatedMsg.correctionProvided, data.updatedMsg.receiverId))
-            })
+                dispatch(correctMessage(data.updatedMsg.id, data.updatedMsg.correctionProvided, data.updatedMsg.receiverId));
+            });
+
             socket.on("new_voiceroom", (data) => {
-                dispatch(addVoiceroom(data.newVoiceroom))
-            })
+                dispatch(addVoiceroom(data.newVoiceroom));
+            });
+
             socket.on("join_voiceroom", (data) => {
-                dispatch(addParticipant(data.voiceroomId, data.participant))
-                console.log(data.newVoiceroom)
-            })
-        })
+                dispatch(addParticipant(data.voiceroomId, data.participant));
+                console.log(data.participant);
+            });
 
+            socket.on("leave_voiceroom", (data) => {
+                console.log(data.voiceroomId, data.userId);
+                dispatch(removeParticipant(data.voiceroomId, data.userId));
+            });
 
+            socket.on("close_voiceroom", (data) => {
+                console.log(data.voiceroomId);
+                dispatch(closeVoiceroom(data.voiceroomId));
+            });
+        });
 
         return () => {
             isCancel = true;
@@ -76,13 +86,14 @@ export default function WebSocketListener() {
                 socket.off("accepted_friend");
                 socket.off("cancel_friend");
                 socket.off("new_message");
-
-                socket.emit("logout", { userId });;
-                socket.disconnect();
+                socket.off("add_correction");
+                socket.off("new_voiceroom");
+                socket.off("join_voiceroom");
+                socket.off("leave_voiceroom");
+                socket.off("close_voiceroom");
             }
         };
     }, []);
-
 
     return null;
 }

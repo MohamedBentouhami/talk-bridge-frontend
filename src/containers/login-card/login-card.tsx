@@ -21,7 +21,7 @@ export default function LoginCard() {
             setLoading(true);
             const response = await login(email, password);
             storeUserToken(response);
-            navigate("/chats")
+            navigate("/chats", { replace: true })
         } catch (error: any) {
             console.log(error);
             setError(error);

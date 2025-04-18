@@ -7,10 +7,13 @@ import { normalizeLangCode } from "../../utils/common/tools";
 
 export default function LangSelect() {
     const { i18n } = useTranslation();
-    const [selected, setSelected] = useState("");
+    const appLg = localStorage.getItem("appLg") ?? "Select Language";
+    const [selected, setSelected] = useState(appLg);
+
 
     const handleChangeLang = (code: string) => {
         setSelected(code)
+        localStorage.setItem("appLg", code)
         code = normalizeLangCode(code);
         i18n.changeLanguage(code);
     }
@@ -21,7 +24,7 @@ export default function LangSelect() {
         <ReactFlagsSelect
             countries={["GB", "FR", "BE"]}
             customLabels={LANGUAGES_APP}
-            placeholder="Select Language"
+            placeholder= {selected}
             onSelect={code => handleChangeLang(code)}
             selected={selected}
         />

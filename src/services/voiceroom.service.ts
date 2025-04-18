@@ -30,3 +30,15 @@ export async function joinVoiceroom(voiceroomId: string) : Promise<void> {
     })
    
 }
+export async function leaveVoiceroom(voiceroomId: string) : Promise<void> {
+    await voiceroomService.patch("voicerooms/leave", {
+        voiceroomId
+    })
+   
+}
+export async function closeVoiceroom(voiceroomId: string) : Promise<void> {
+    await voiceroomService.patch("voicerooms/close", {
+        voiceroomId
+    })
+   
+}

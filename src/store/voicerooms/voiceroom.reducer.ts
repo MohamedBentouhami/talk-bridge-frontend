@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { Voiceroom } from "../../@types/voiceroom";
-import { addParticipant, addVoiceroom, voiceroomsFetch } from "./voiceroom.action";
+import { addParticipant, addVoiceroom, closeVoiceroom, removeParticipant, voiceroomsFetch } from "./voiceroom.action";
 
 type VoiceroomState = {
     isLoading: boolean;
@@ -38,6 +38,20 @@ const VoiceroomReducer = createReducer(initialState, (builder) => {
             const { vrId, participant } = action.payload;
             const vr = state.voicerooms?.find(vr => vr.id === vrId);
             vr?.participants.push(participant);
+        })
+        .addCase(removeParticipant, (state, action) => {
+            const { vrId, userId } = action.payload;
+            const vr = state.voicerooms?.find(vr => vr.id === vrId);
+            if (vr) {
+                vr.participants = vr.participants.filter(p => p.id !== userId);
+            }
+        })
+        .addCase(closeVoiceroom, (state, action) => {
+            const vrId = action.payload;
+            const vr = state.voicerooms?.find(vr => vr.id === vrId);
+            if(vr){
+                vr.isActive = false
+            }
         })
 
 });

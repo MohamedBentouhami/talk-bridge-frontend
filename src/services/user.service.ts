@@ -26,7 +26,6 @@ export async function getUserInfo(): Promise<Person> {
 }
 
 export async function updateUser(editForm: editForm) {
-    console.log(editForm);
     await userService.patch('/users/update', {
         "first_name": editForm.firstName,
         "last_name": editForm.lastName,

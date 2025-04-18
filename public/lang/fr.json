@@ -41,7 +41,8 @@
     "chats": {
         "greeting": "Salut👋, {{firstName}} {{lastName}} !",
         "sidebar-title": "Amis",
-        "noChatMessage": "Sélectionnez une conversation dans la barre de chat pour commencer à discuter"
+        "noChatMessage": "Sélectionnez une conversation dans la barre de chat pour commencer à discuter",
+        "no-friend": "Aucun ami trouvé."
     },
     "connect": {
         "title": "Trouvez des partenaires linguistiques",
@@ -50,6 +51,28 @@
     },
     "profile": {
         "ignore": "Ignorer",
-        "accept": "Accepter"
+        "accept": "Accepter",
+        "tabs": {
+            "account": "Compte",
+            "app": "Application",
+            "password": "Mot de passe"
+        },
+        "update": {
+            "success": "Profil mis à jour avec succès !",
+            "error": "Une erreur s'est produite. Veuillez réessayer."
+        },
+        "app-settings": {
+            "title": "Paramètres de l'application",
+            "language": "Langue de l'interface",
+            "notifications": "Activer les notifications",
+            "appearance": "Apparence de l'application",
+            "languageChanged": "La langue a été changée en {{language}}.",
+            "notificationsEnabled": "Les notifications sont maintenant {{status}}.",
+            "appearanceMode": "L'application est maintenant en mode {{mode}}.",
+            "status": {
+                "enabled": "activées",
+                "disabled": "désactivées"
+            }
+        }
     }
 }

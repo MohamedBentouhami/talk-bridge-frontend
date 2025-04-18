@@ -8,13 +8,13 @@
     --main-bg-color: #212121;
     --secondary-bg-color: #523d68;
     --main-color: snow;
+    --second-color: rgba(255, 255, 255, 0.2);
 }
-
 
 [data-theme="light"] {
     --main-bg-color: white;
-    --secondary-bg-color:#523d68;
     --main-color: #000;
+    --second-color: rgba(47, 44, 44, 0.4);
 }
 
 body {

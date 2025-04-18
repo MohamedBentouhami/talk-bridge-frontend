@@ -42,7 +42,7 @@ export default function RegisterCard() {
             setIsLoading(true);
             const response = await signup(correctData);
             storeUserToken(response);
-            await navigate("/chats");
+            await navigate("/chats", { replace: true });
         } catch (error: any) {
             setError(error);
             console.log(error)

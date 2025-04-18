@@ -1,25 +1,25 @@
 {
   "app": {
-    "title": "Taalapplicatie"
+    "title": "Taal App"
   },
   "menu": {
     "home": "Startpagina",
-    "chats": "Gesprekken",
+    "chats": "Chats",
     "connect": "Verbinden",
     "voiceroom": "Spraakruimte",
-    "tools": "Hulpmiddelen",
+    "tools": "Tools",
     "profile": "Profiel",
     "logout": "Afmelden"
   },
   "login": {
-    "email": "E-mailadres",
+    "email": "E-mail",
     "password": "Wachtwoord",
     "no-account": "Heb je nog geen account?",
-    "register": "Registreren",
-    "btn-login": "Aanmelden"
+    "register": "Registreer",
+    "login": "Aanmelden"
   },
   "register": {
-    "title": "Maak een account aan",
+    "title": "Een account aanmaken",
     "firstName": "Voornaam",
     "lastName": "Achternaam",
     "birthday": "Geboortedatum",
@@ -30,17 +30,25 @@
     "confirmPassword": "Bevestig wachtwoord",
     "next": "Volgende",
     "back": "Terug",
-    "button": "Registreren"
+    "button": "Registreren",
+    "step1": "1",
+    "step2": "2",
+    "step3": "3",
+    "personal": "Persoonlijk",
+    "language": "Taal",
+    "account": "Account"
   },
   "home": {
     "title": "Welkom bij Talk Bridge - Verbind, Leer en Groei! 🌍✨",
-    "intro": "Word lid van een wereldwijde community waar taalleerders en moedertaalsprekers elkaar helpen via echte gesprekken. Begin vandaag nog aan je avontuur!",
-    "get-start": "BEGINNEN",
+    "intro": "Word lid van een wereldwijde gemeenschap waar taalleerders en moedertaalsprekers elkaar helpen via echte gesprekken. Begin vandaag nog aan je reis!",
+    "get-start": "AAN DE SLAG",
     "have-account": "IK HEB AL EEN ACCOUNT"
   },
   "chats": {
+    "greeting": "Hey👋, {{firstName}} {{lastName}}!",
     "sidebar-title": "Vrienden",
-    "noChatMessage": "Selecteer een gesprek in de zijbalk om te beginnen chatten"
+    "noChatMessage": "Selecteer een gesprek in de zijbalk om te beginnen met chatten",
+    "no-friend": "Geen vrienden gevonden."
   },
   "connect": {
     "title": "Vind taalpartners",
@@ -48,7 +56,27 @@
     "requestSent": "In afwachting van goedkeuring"
   },
   "profile": {
-    "ignore": "Negeren",
-    "accept": "Accepteren"
+    "tabs": {
+      "account": "Account",
+      "app": "Applicatie",
+      "password": "Wachtwoord"
+    },
+    "update": {
+      "success": "Profiel succesvol bijgewerkt!",
+      "error": "Er is iets mis gegaan. Probeer het opnieuw."
+    },
+    "app-settings": {
+      "title": "Applicatie-instellingen",
+      "language": "Taal van de interface",
+      "notifications": "Meldingen inschakelen",
+      "appearance": "Uiterlijk van de app",
+      "languageChanged": "De taal is gewijzigd naar {{language}}.",
+      "notificationsEnabled": "Meldingen zijn nu {{status}}.",
+      "appearanceMode": "De app is nu in {{mode}} modus.",
+      "status": {
+        "enabled": "ingeschakeld",
+        "disabled": "uitgeschakeld"
+      }
+    }
   }
 }

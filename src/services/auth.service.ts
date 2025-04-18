@@ -20,7 +20,7 @@ export default async function signup(data: formData) {
         "birth_date": data.birthday,
         "native_language": data.nativeLanguage,
         "learning_language": data.targetLanguage,
-        "bio": "None",
+        "bio": " ",
         "profile_pict": data.picture
     }, {
         headers: {

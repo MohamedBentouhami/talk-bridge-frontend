@@ -31,7 +31,7 @@
 .sidebar-menu li {
     padding: 10px;
     cursor: pointer;
-    color: rgba(255, 255, 255, 0.2)
+    color: var(--second-color)
 }
 
 .sidebar-menu li.active {

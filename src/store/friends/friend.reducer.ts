@@ -100,7 +100,6 @@ const friendsReducer = createReducer(initialState, (builder) => {
         })
         .addCase(updatePartner, (state, action) => {
             const { partnerId, isPending } = action.payload;
-            console.log(isPending)
             const partner = state.partners?.find(p => p.id === partnerId);
             if (partner) {
                 partner.isPending = isPending;

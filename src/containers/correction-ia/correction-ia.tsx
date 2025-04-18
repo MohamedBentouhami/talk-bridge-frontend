@@ -22,7 +22,6 @@ export default function CorrectionIA() {
         const answer = await correctText(text, lg);
         setOutput(answer);
         setIsLoading(false);
-        console.log(lg)
     }
 
     return <div className="correction-ia">

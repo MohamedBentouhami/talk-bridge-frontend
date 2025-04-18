@@ -33,7 +33,8 @@ export default function VoiceroomCard({ voiceroom }: VoiceroomCardProps) {
       </div>
       {voiceroom.isActive && <div className="vr-participants">
         {voiceroom.participants.length} participant{voiceroom.participants.length !== 1 ? 's' : ''}
-      </div>}
+      </div>
+      }
     </div>
   );
 }

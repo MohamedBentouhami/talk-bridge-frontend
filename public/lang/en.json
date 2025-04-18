@@ -47,7 +47,8 @@
     "chats": {
         "greeting": "Hey👋, {{firstName}} {{lastName}}!",
         "sidebar-title": "Friends",
-        "noChatMessage": "Select a conversation from the side bar to start chatting"
+        "noChatMessage": "Select a conversation from the side bar to start chatting",
+        "no-friend": "No friends found."
     },
     "connect": {
         "title": "Find language partners",
@@ -57,6 +58,27 @@
     "profile": {
         "ignore": "Ignore",
         "accept": "Accept",
-        "app-settings": "Application Settings"
+        "tabs": {
+            "account": "Account",
+            "app": "Application",
+            "password": "Password"
+        },
+        "update": {
+            "success": "Profile updated successfully!",
+            "error": "Something went wrong. Please try again."
+        },
+        "app-settings": {
+            "title": "Application Settings",
+            "language": "Interface Language",
+            "notifications": "Enable Notifications",
+            "appearance": "App Appearance",
+            "languageChanged": "Language has been changed to {{language}}.",
+            "notificationsEnabled": "Notifications are now {{status}}.",
+            "appearanceMode": "The app is now in {{mode}} mode.",
+            "status": {
+                "enabled": "enabled",
+                "disabled": "disabled"
+            }
+        }
     }
 }

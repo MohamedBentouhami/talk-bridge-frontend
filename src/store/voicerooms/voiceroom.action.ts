@@ -21,3 +21,13 @@ export const addParticipant = createAction("voiceroom/add/participant", (vrId: s
         payload: { vrId, participant }
     }
 })
+export const removeParticipant = createAction("voiceroom/remove/participant", (vrId: string, userId: string) => {
+    return {
+        payload: { vrId, userId }
+    }
+})
+export const closeVoiceroom = createAction("voiceroom/close/", (vrId: string) => {
+    return {
+        payload: vrId
+    }
+})
